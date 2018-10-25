@@ -16,5 +16,7 @@
 
 ## 总是记不住的东西
 
-* rel="nofollow me noopener noreferrer" a标签防钓鱼
-* scroll-behavior: smooth; 浏览器原生平滑滚动
+* rel="nofollow me noopener noreferrer" // a标签防钓鱼
+* scroll-behavior: smooth; // 浏览器原生平滑滚动
+*(123456789.123).toLocaleString('en-US'); // "123,456,789.123"
+* new Intl.NumberFormat().format(123456789.123); // "123,456,789.123"
