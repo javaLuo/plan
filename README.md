@@ -21,3 +21,4 @@
 * scroll-behavior: smooth; // 浏览器原生平滑滚动
 * (123456789.123).toLocaleString('en-US'); // "123,456,789.123"
 * new Intl.NumberFormat().format(123456789.123); // "123,456,789.123"
+* pointer-events: none/auto; // 是否响应鼠标事件
