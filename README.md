@@ -25,3 +25,4 @@
 * new Intl.NumberFormat().format(123456789.123); // "123,456,789.123"
 * pointer-events: none/auto; // 是否响应鼠标事件
 * white-space:nowrap;overflow:hidden;text-overflow:ellipsis; // ...
+* user-select: none;
