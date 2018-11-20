@@ -1,0 +1,5 @@
+export const GET_QUEST_LIST = 'GET_QUEST_LIST';
+export const GET_TYPE_LIST = 'GET_TYPE_LIST';
+export const GET_ANSWER_LIST = 'GET_ANSWER_LIST';
+export const POST_QUEST_RESPONSE = 'POST_QUEST_RESPONSE';
+export const GET_ANSWER_BY_ID = 'GET_ANSWER_BY_ID';

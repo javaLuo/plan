@@ -1,0 +1,134 @@
+button:focus {
+  outline: none;
+}
+
+.el-loading-mask {
+  z-index: 999;
+}
+
+.ad {
+  .publish-form {
+    .el-button {
+      width: 100%;
+      height: 100%;
+    }
+    .el-radio__input.is-checked+.el-radio__label {
+      color: #354989;
+    }
+    .price-setting {
+      .setting {
+        margin-top: 44px;
+        .el-form-item {
+          margin-top: 0;
+          margin-bottom: 0px;
+        }
+      }
+    }
+    .el-checkbox {
+      a {
+        color: #6aa0ff;
+      }
+    }
+    .el-form-item {
+      display: flex;
+      margin-top: 50px;
+      &:first-child {
+        margin-top: 0px;
+      }
+      .el-form-item__content {
+        line-height: 20px;
+      }
+      .el-form-item__label {
+        text-align: right;
+        font-size: 14px;
+        color: #7d86ac;
+        padding: 0;
+        min-width: 140px; // width: 130px; 这里用width英文要换行，chrome里至少要140
+      }
+      .el-input__inner {
+        border-color: #e9ecf4;
+        border-radius: 2px;
+        &:focus {
+          border-color: #6aa0ff;
+        }
+      }
+      .el-textarea__inner {
+        border-color: #e9ecf4;
+        border-radius: 2px;
+        &:focus {
+          border-color: #6aa0ff;
+        }
+      }
+      .el-form-item__error {
+        left: 24px;
+      }
+    }
+    .el-form-item.is-error .el-input__inner,
+    .el-form-item.is-error .el-input__inner:focus,
+    .el-form-item.is-error .el-textarea__inner,
+    .el-form-item.is-error .el-textarea__inner:focus,
+    .el-message-box__input input.invalid,
+    .el-message-box__input input.invalid:focus {
+      border-color: #ff6549;
+    }
+    .el-input--suffix .el-input__inner {
+      font-size: 14px;
+      color: #354989;
+    }
+    .el-select .el-input.is-focus .el-input__inner {
+      border-color: #e9ecf4;
+    }
+    .el-select .el-input__inner:focus,
+    .el-select .el-input__inner:hover {
+      border-color: #e9ecf4;
+    }
+  }
+}
+
+.el-select-dropdown__wrap {
+  max-height: 240px;
+}
+
+.capital-modal-form {
+  .el-form-item__content {
+    flex-grow: 1;
+  }
+}
+
+.order-dialog {
+  .el-dialog__header {
+    font-size: 18px;
+    color: #354989;
+  }
+  .el-dialog__body {
+    padding: 16px 20px 30px 20px;
+    font-size: 14px;
+    color: #354989;
+  }
+  .el-dialog__footer {
+    padding: 0 20px 20px 20px;
+  }
+}
+
+//全局form lebal上下布局方式的css
+.el-form--label-top {
+  .el-form-item {
+    margin-bottom: 20px;
+  }
+  .el-form-item__label {
+    line-height: 20px;
+    padding-bottom: 8px;
+    color: #7d86ac;
+    &::before {
+      display: none;
+    }
+  }
+  .el-input__inner {
+    border-color: #e9ecf4;
+    border-radius: 2px;
+  }
+  .el-textarea__inner {
+    height: 86px;
+    border: 1px solid #e9ecf4;
+  }
+}

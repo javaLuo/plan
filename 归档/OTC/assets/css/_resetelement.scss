@@ -1,0 +1,10 @@
+//loading样式
+.el-loading-parent--relative {
+  min-height: 300px;
+}
+
+.addpaymethod-dialog {
+  .el-loading-parent--relative {
+    min-height: auto;
+  }
+}

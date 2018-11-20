@@ -1,0 +1,48 @@
+module.exports = {
+  title: 'Merchant',
+  notes: 'Become RightBTC’s certified merchant for faster and easier transaction services.',
+  auth1: {
+    title: 'Advertising',
+    des: "Merchants can get trader's attention by advertising, and long-term advertising will attract more traders.",
+  },
+  auth2: {
+    title: 'Exclusive logo',
+    des: 'Verified merchants will have an exclusive logo to enhance reliability and trustworthiness.',
+  },
+  agreement: ['I have read and agree to', '<Merchant Certification Terms and Conditions>'],
+  apply: 'Apply normal merchant',
+  applyVip: 'Apply elite merchant',
+  cancel: 'Apply for cancellation',
+  protocol: 'How to apply',
+  step1: 'Step One: Please provide below documents',
+  step1Con: [
+    '1.Please download',
+    'the Application Template',
+    ',fill in the required infromation.',
+    '2.Please record a video as per the following requirements:',
+    'Hold the front side of your ID card(or other acceptable ID documents) and video clear during the recording.',
+    'Read the following terms to prove the legitimacy of your asset source and your willingness of digital asset trading: I (name, ID number), announce that my assets are all from legal and reliable sources, i would like to buy/sell digital assets such as Bitcoin out of my own willingness. I fully understand digital assets and their possible risks and i hold my anti-risk ability to hold all the risks by myself if have.',
+  ],
+  step2: 'Step Two: Send the application by mail',
+  step2Con: ['Send the documents and video to', 'otc@rightbtc.com', ',The email subject will be "Application For Merchant Qualification".'],
+  step3: 'Step Three:Submit your application on this page',
+  step3Con:
+    'After sending the email, please click the "Apply Now" button on this page to submit the application. Agree to freeze @1 as a security deposit. Once submitted, you will be able to post advertisements.',
+  step4: 'Step Four:Document verification',
+  step4Con: 'We will review your application within 72 hours. Please keep the communication open, we will contact you via mobile phone.',
+  comment:
+    'Notice: Only premium Merchants with larger security deposits are able to post ads in Block Trade area.Premium Merchants require to have large transaction volume, high efficiency, good reputation, and need to pay extra large amount of deposit. We will check your information and confirm whether you are qualified as a premium merchant.',
+  checkMes: 'I agreed to freeze @1 as security deposit.',
+  confirm: 'I confirm to apply',
+  agreeWarn: 'Please select I read and comply with <Certification Terms and Conditions>',
+  busiStatus: ['Your application has been submitted, please wait for the approval.', 'Congratulation! Became the merchant successfully. '],
+  message: ['I agreed to freeze @1 as security deposit.', 'Please set your nickname in Personal Center'],
+  templateUrl: 'http://tulipex-dev.s3.amazonaws.com/2018-09-26_3038121510314299858.docx',
+  close: 'close',
+  applyCancelInfo:
+    'When you no longer need to post an ad, you can apply to cancel the merchant certification, we will cancel the deposit and confirm the refund after you have no transaction disputes, and refund the deposit',
+  updateLevel: 'Upgrade elite merchant',
+  downLevel: 'Demote normal merchant',
+  isblack: "Merchant identity can not be cancelled due to your violation of platform's regulation(s), please contact customer support.",
+  isblack2: "Elite merchant identity can not be upgraded due to your violation of platform's regulation(s), please contact customer support.",
+};

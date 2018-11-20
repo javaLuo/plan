@@ -1,0 +1,95 @@
+.modal-form {
+  .el-dialog__header {
+    padding: 22px 26px 10px;
+  }
+  .el-dialog__title {
+    font-size: 18px;
+    color: #354989;
+  }
+  .el-form--label-top .el-form-item__label {
+    padding: 0;
+    color: #7d86ac;
+  }
+  .el-form-item.is-required .el-form-item__label:before {
+    display: none;
+  }
+  .el-form-item:first-of-type {
+    margin-bottom: 28px;
+  }
+  .el-checkbox__label {
+    color: #354989;
+  }
+  .el-input {
+    background: #ffffff;
+    border-radius: 4px;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+  }
+  .el-dialog__footer {
+    padding: 0 26px 20px;
+  }
+  .el-input-number {
+    width: 291px;
+  }
+  .el-dialog {
+    border-radius: 4px;
+  }
+  .el-dialog__body {
+    padding: 0 26px;
+  }
+  .el-upload-dragger {
+    width: 290px;
+  }
+  .el-upload-list--picture {
+    position: relative;
+    top: -205px;
+    .el-upload-list__item {
+      width: 290px;
+      height: 180px;
+    }
+  }
+}
+
+.tl-dialog {
+  // 外层框
+  &.el-dialog__wrapper {
+    color: #354989;
+    .el-dialog {
+      border-radius: 3px;
+      &__header {
+        padding: 22px 26px 10px;
+      }
+      &__title {
+        font-size: 18px;
+      }
+      &__headerbtn {
+        right: 26px;
+        .el-dialog__close {
+          color: #a8afcd;
+          font-weight: bold;
+        }
+      }
+      &__body {
+        padding: 0 26px;
+      }
+      &__footer {
+        padding: 0 26px 20px;
+      }
+    }
+    .el-button {
+      padding: 9px 20px;
+    }
+    .el-upload {
+      overflow: hidden;
+      width: 100%;
+    }
+    .el-upload-dragger {
+      width: 100%;
+      border-color: #e9ecf4;
+      .el-upload__text {
+        color: #d3d8e6;
+      }
+    }
+  }
+}

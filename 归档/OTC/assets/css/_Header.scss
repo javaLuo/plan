@@ -1,0 +1,245 @@
+@mixin headerArrow {
+  position: absolute;
+  content: '';
+  top: 50%;
+  right: -14px;
+  width: 0;
+  height: 0;
+  margin-top: -2px;
+  border-width: 5px;
+  border-color: #b3c5f3 transparent transparent;
+  border-style: solid;
+  transform: rotate(0);
+  transform-origin: 50% 25%;
+  transition: transform 0.2s ease;
+}
+
+@mixin headerHeight {
+  height: 58px;
+  line-height: 58px;
+}
+
+header {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #01154b;
+  width: 100%;
+  min-width: 1200px;
+  &.rightOrderShow {
+    width: calc(100% - 344px);
+  }
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    @include headerHeight;
+    padding: 0 30px;
+    font-size: 16px;
+    .header-left {
+      display: flex;
+      justify-content: flex-start;
+      .logo {
+        width: 130px;
+        height: 100%;
+        a {
+          display: table-cell;
+          height: 58px;
+          vertical-align: middle;
+          img {
+            width: 100%;
+            vertical-align: middle;
+          }
+        }
+      }
+      nav {
+        flex-grow: 0.5;
+        height: 100%;
+        position: relative;
+        margin-left: 25px;
+        a {
+          display: inline-block;
+          position: relative;
+          margin: 0 0 0 12px;
+          color: #b3c5f3;
+          padding: 0 10px;
+          &:after {
+            display: none;
+            content: '';
+            position: absolute;
+            bottom: 1px;
+            left: 50%;
+            width: 80%;
+            margin-left: -40%;
+            height: 2px;
+            background: #6aa0ff;
+          }
+          &.nuxt-link-exact-active,
+          &:hover {
+            color: #6aa0ff;
+          }
+          &:hover:after,
+          &.nuxt-link-exact-active:after {
+            display: block;
+          }
+        }
+      }
+    }
+  } //下拉菜单
+  .dropdown {
+    display: none;
+    z-index: 2001; // 需要大于loading组件的蒙层
+    position: absolute;
+    top: 57px;
+    left: 0; // width: 90px;
+    padding: 8px 0;
+    font-size: 12px;
+    text-align: center;
+    background: #1a3776;
+    border-radius: 2px;
+    white-space: nowrap;
+    li {
+      padding: 0 22px;
+      line-height: 28px;
+      text-align: left;
+      cursor: pointer;
+      &:not(:last-of-type) {
+        margin-bottom: 4px;
+      }
+      a {
+        display: block;
+        color: #b3c5f3;
+        &:hover {
+          background-color: #012167;
+        }
+      }
+      &:hover {
+        background-color: #012167;
+      }
+    }
+  }
+  .header-right {
+    display: flex;
+    justify-content: flex-start;
+    height: 100%;
+    .order {
+      position: relative;
+      a {
+        font-size: 16px;
+        color: #b3c5f3;
+      }
+      .hasnotices {
+        overflow: hidden;
+        position: absolute;
+        top: 19px;
+        left: 12px;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #fb2e07;
+      }
+      .iconfont {
+        margin-right: 8px;
+      }
+      &::after {
+        @include headerArrow;
+      }
+      .order-message {
+        visibility: hidden;
+        position: absolute;
+        z-index: 9999;
+        top: 57px;
+        left: 50%;
+        height: 516px;
+        margin-left: -172px;
+        border: none;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1), -2px 0 4px rgba(0, 0, 0, 0.1);
+        .order-msg-title {
+          color: #354989;
+          background: #fff;
+        }
+      }
+      &.rightOrderShow {
+        &:hover {
+          .order-message {
+            visibility: visible;
+          }
+          &::after {
+            top: 50%;
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+    .assets {
+      margin-left: 48px;
+      a {
+        font-size: 16px;
+        color: #b3c5f3;
+      }
+      .iconfont {
+        margin-right: 8px;
+      }
+    }
+    .user {
+      display: inline-flex;
+      margin-left: 44px;
+      font-size: 16px;
+      color: #b3c5f3;
+      letter-spacing: 0;
+      text-align: left;
+      position: relative;
+      .username-text {
+        display: inline-block;
+        min-width: 50px;
+        max-width: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      a {
+        color: #b3c5f3;
+      }
+      &:hover {
+        >ul {
+          display: block;
+        }
+        &::after {
+          top: 50%;
+          transform: rotate(180deg);
+        }
+      }
+      &::after {
+        @include headerArrow;
+      }
+      .dropdown {
+        padding-bottom: 12px;
+      }
+    }
+    .language {
+      position: relative;
+      margin-left: 48px;
+      font-size: 14px;
+      color: #b3c5f3;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.5s ease-in-out;
+      &::after {
+        @include headerArrow;
+      }
+      &:hover {
+        ul {
+          width: 92px;
+          left: auto;
+          right: -18px;
+          display: block;
+        }
+        &::after {
+          top: 50%;
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}
