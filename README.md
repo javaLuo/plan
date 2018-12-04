@@ -29,3 +29,4 @@
 * pointer-events: none/auto; // 是否响应鼠标事件
 * white-space:nowrap;overflow:hidden;text-overflow:ellipsis; // ...
 * user-select: none;
+* text-align-last
