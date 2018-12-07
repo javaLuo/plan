@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+<meta name="author" content="Logic">
+<meta name="description" content="Logic个人网站">
+<meta name="keywords" content="Logic,isluo,luo">
+<title>ISLUO</title>
+
+</script>
+</head>
+<body>
+<div>
+  <input id="content" type="text" name="content"><br/>
+  <input id="author" name="author" />
+  <button onclick="addNews()">添加广告</button>
+  <hr/>
+  <input id="newsid">
+  <button onclick="getNews()">获取广告</button>
+  <div id="newsbox"></div>
+  <hr/>
+  <input id="upid">
+  <input id="upcontent">
+  <input id="upauthor">
+  <button onclick="upNews()">编辑广告</button>
+</div>
+<script src="/kernel/jquery/jquery-3.0.0.min.js"></script>
+
+<script>
+$.ajax({
+  url:'/main/todo.do?m=getAllWorks&p=',
+  type:'GET',
+  success: function(res){
+    console.log('返回了什么ajax:', res);
+  }
+})
+</script>
+
+<script>
+function addNews(){
+  var content = document.getElementById('content').value;
+  var author = document.getElementById('author').value;
+
+  var query = `mutation func($content: String!, $author: String!){
+    createMessage(input: {content: $content, author: $author}){
+      id
+    }
+}`;
+
+  fetch('/graphql',{
+    method: 'POST',
+    headers: {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+  },
+    body: JSON.stringify({
+    query,
+    variables: { content, author },
+  })
+  
+  })
+}
+
+function getNews(){
+  var query = `query func($pageNow: Int!){
+    movie(pageNow: $pageNow){
+      id
+      title
+      imgpath
+    }
+  }`;
+
+  fetch('/graphql',{
+    method: 'POST',
+    headers: {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+  },
+  body: JSON.stringify({
+    query,
+    variables: { pageNow:0},
+  })
+  }).then(r => r.json())
+  .then(data => console.log(data));
+}
+
+function upNews(){
+  var id = document.getElementById('upid').value;
+  var content = document.getElementById('upcontent').value;
+  var author = document.getElementById('upauthor').value;
+
+  var query = `mutation func($id: ID!, $content: String!, $author: String!){
+    updateMessage(id: $id, input:{content: $content, author: $author}){
+      id
+    }
+  }`;
+
+  fetch('/graphql',{
+    method: 'POST',
+    headers: {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+  },
+    body: JSON.stringify({
+    query,
+    variables: { id, content, author },
+  })
+  
+  }).then(r=>r.json()).then(data=>console.log(data))
+
+}
+
+  function server2(){
+var query = `mutation func($talkinfo: String!){addTalk(talkinfo: $talkinfo){
+    id
+    time
+    info
+  }
+  }`;
+
+fetch('/graphql', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+  },
+  body: JSON.stringify({
+    query,
+    variables: {talkinfo: '游客@@GraphQL来了'}
+  })
+})
+  .then(r => r.json())
+  .then(data => console.log('data returned:', data));
+  }
+  server2();
+</script>
+</body>
+</html>
