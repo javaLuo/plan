@@ -1,0 +1,109 @@
+@keyframes highlight-animation {
+  0% {
+    background: transparent;
+  }
+  to {
+    background: #fff2cf;
+  }
+}
+@keyframes highlight-animation-theme-dark {
+  0% {
+    background: transparent;
+  }
+  to {
+    background: #194453;
+  }
+}
+
+/** 头部 **/
+.chart-page .toolbar-2n2cwgp5- {
+  padding: 0;
+}
+/** 头部里面的所有按钮 **/
+.chart-page .toolbar-2n2cwgp5- .group-wWM3zP_M- {
+  margin-left: 0;
+  border-radius: 0;
+  cursor: pointer;
+}
+.chart-page .toolbar-2n2cwgp5- .group-wWM3zP_M- span {
+  cursor: pointer;
+}
+.chart-page .toolbar-2n2cwgp5- .fill-2axUON87- {
+  cursor: auto;
+}
+/** 所有的自定义按钮本体 **/
+.chart-page .toolbar-2n2cwgp5- .group-wWM3zP_M- .customButton--jqJTfH5- {
+  padding: 0 10px;
+  height: 30px;
+  line-height: 30px;
+  color: #4d6c87;
+  font-size: 12px;
+  transition: all 250ms;
+  border-radius: 2px;
+}
+.chart-page .toolbar-2n2cwgp5- .group-wWM3zP_M- .customButton--jqJTfH5-:hover {
+  background-color: rgba(220, 220, 220, 0.2);
+}
+
+.chart-page .toolbar-2n2cwgp5- .group-wWM3zP_M- .customButton--jqJTfH5-.active {
+  color: #fff;
+  background-color: #4e5b85;
+  cursor: default;
+}
+/** 暗主题 头部toolbar设置 **/
+.theme-dark .chart-page .toolbar-2n2cwgp5- .group-wWM3zP_M- {
+  background-color: #191d35;
+}
+
+/** 图表容器 **/
+.chart-page .chart-container {
+  border-color: transparent !important;
+  background-color: #fff;
+}
+html.theme-dark .chart-page .chart-container {
+  background-color: #191d35 !important;
+}
+/** 设置弹框 **/
+.chart-page ._tv-dialog ._tv-dialog-content .main-properties {
+  height: auto !important;
+  max-height: 293px;
+  padding: 12px 20px 10px 20px;
+}
+.chart-page ._tv-dialog ._tv-dialog-content .main-properties-aftertabs {
+  padding-top: 0;
+}
+.chart-page ._tv-dialog ._tv-dialog-content .properties-tabs {
+  height: 45px;
+}
+.chart-page ._tv-dialog ._tv-dialog-content .properties-tabs .properties-tabs-label {
+  height: 44px;
+  padding: 15px 0 0 0;
+}
+.chart-page .tv-dialog .tv-dialog__section {
+  padding: 14px;
+}
+.chart-page .tv-dialog .tv-dialog__close {
+  top: 2px;
+  right: 0;
+}
+.chart-page .tv-dialog .tv-dialog__close svg {
+  width: 9px;
+  height: 9px;
+}
+/** 左侧工具栏 **/
+.chart-page .drawingToolbar-U3_QXRof-.isHidden-2d-PYkzV- {
+  background-color: #ffffff;
+}
+html.theme-dark .chart-page .drawingToolbar-U3_QXRof-.isHidden-2d-PYkzV- {
+  background-color: #191d35;
+}
+html.theme-dark .chart-page .group-2JyOhh7Z- {
+  background-color: #191d35;
+}
+/** loading时的遮罩 **/
+.chart-page .chart-loading-screen .chart-loading-screen-shield {
+  background-color: rgb(255, 255, 255) !important;
+}
+html.theme-dark .chart-page .chart-loading-screen .chart-loading-screen-shield {
+  background-color: rgb(25, 29, 53) !important;
+}

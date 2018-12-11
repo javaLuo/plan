@@ -1,0 +1,326 @@
+$light: light !default;
+$dark: dark !default;
+$lightFooterTableColor: #012167; //最黑色，用于顶部、头部纸片
+$lightButtonColor: #5693ff; //按钮色，用于重要按钮
+$lightHeaderFooterColor: #e0e8fd; //用户头部和底部字体颜色
+$upColor: #60cd8a;
+$downColor: #df543a;
+$lightSLButtonColor: #58b675;
+$lightSLFontColor: #29a76c;
+$lightSLBorderColor: #5eca7a;
+$lightLPButtonColor: #4fc183;
+// 重新写一遍颜色对照表，和ui统一使用编号来区分
+//用于页面背景色
+$light001: #f4f6fc !default;
+$dark001: #090c21 !default;
+//用于内容展示类纸片(TOP部分以阴影区分)
+$light002: #fff !default;
+$dark002: #191d35 !default;
+//用于重要文字，可加粗
+$light003: #243365 !default;
+$dark003: #ced1e3 !default;
+//用于次级文字、正文
+$light004: #8c95bb !default;
+$dark004: #5b5f7c !default;
+//用于提示性文字 例如placeholder
+$light005: #c1c5d8 !default;
+$dark005: #373b58 !default;
+//用于重要按钮、可交互文案
+$light006: #6aa0ff !default;
+$dark006: #477bf7 !default;
+//用于内容展示类纸片上的分割线
+$light007: #f5f6f9 !default;
+$dark007: #202541 !default;
+//用于输入框描边(默认)
+$light008: #dbdfea !default;
+$dark008: #2d3355 !default;
+//用于悬浮色 用于内容展示类纸片的划过效果 输入框不可选
+$light009: #f6f8fd !default;
+$dark009: #1e223d !default;
+//用于侧边栏tab切换的字体颜色
+$light010: #4f5d8c !default;
+$dark010: #8287aa !default;
+//用于禁止输入背景色
+$light011: #f4f6fb !default;
+$dark011: #1e233f !default;
+//用于主要按钮hover背景色
+$light012: #568ae6 !default;
+$dark012: #6190fd !default;
+//用于主要按钮disabled背景色
+$light013: #88b3ff !default;
+$dark013: #233d7b !default;
+//用于loading的mask背景颜色
+$light014: rgba(246, 248, 254, 0.8) !default;
+$dark014: rgba(8, 12, 32, 0.5) !default;
+// 这里是通用颜色
+//涨颜色，如果是按钮需要增加84%的透明度
+$common1: #29a76c !default;
+//跌颜色，如果是按钮需要增加84%的透明度
+$common2: #df543a !default;
+$common3: #12152a !default;
+.up {
+  color: $upColor;
+}
+
+.down {
+  color: $downColor;
+}
+
+.noToLink {
+  color: #c0c4cc !important;
+  cursor: not-allowed;
+}
+
+//mixin 通过该函数设置主题颜色，后期方便统一管理；
+//用于页面背景色
+@mixin frontPair($attr) {
+  [data-theme='light'] & {
+    #{$attr}: $light001;
+  }
+  .light & {
+    #{$attr}: $light001;
+  }
+  [data-theme='dark'] & {
+    #{$attr}: $dark001;
+  }
+  .dark & {
+    #{$attr}: $dark001;
+  }
+}
+
+@mixin bgPair($attr) {
+  [data-theme='light'] & {
+    #{$attr}: $light002;
+  }
+  .light & {
+    #{$attr}: $light002;
+  }
+  [data-theme='dark'] & {
+    #{$attr}: $dark002;
+  }
+  .dark & {
+    #{$attr}: $dark002;
+  }
+}
+
+// 用于重要文字，可加粗
+@mixin fontPair($attr) {
+  [data-theme='light'] & {
+    #{$attr}: $light003;
+  }
+  .light & {
+    #{$attr}: $light003;
+  }
+  [data-theme='dark'] & {
+    #{$attr}: $dark003;
+  }
+  .dark & {
+    #{$attr}: $dark003;
+  }
+}
+
+// 用于普通文字, 副标题、label等
+@mixin subFontPair($attr) {
+  [data-theme='light'] & {
+    #{$attr}: $light004;
+  }
+  .light & {
+    #{$attr}: $light004;
+  }
+  [data-theme='dark'] & {
+    #{$attr}: $dark004;
+  }
+  .dark & {
+    #{$attr}: $dark004;
+  }
+}
+
+//用于提示性文字 例如placeholder
+@mixin tipsPair($attr) {
+  [data-theme='light'] & {
+    #{$attr}: $light005;
+  }
+  .light & {
+    #{$attr}: $light005;
+  }
+  [data-theme='dark'] & {
+    #{$attr}: $dark005;
+  }
+  .dark & {
+    #{$attr}: $dark005;
+  }
+}
+
+//用于重要按钮、可交互文案
+@mixin interactionPair($attr) {
+  [data-theme='light'] & {
+    #{$attr}: $light006;
+  }
+  .light & {
+    #{$attr}: $light006;
+  }
+  [data-theme='dark'] & {
+    #{$attr}: $dark006;
+  }
+  .dark & {
+    #{$attr}: $dark006;
+  }
+}
+
+//用于内容展示类纸片上的分割线
+@mixin cutLinePair($attr) {
+  [data-theme='light'] & {
+    #{$attr}: $light007;
+  }
+  .light & {
+    #{$attr}: $light007;
+  }
+  [data-theme='dark'] & {
+    #{$attr}: $dark007;
+  }
+  .dark & {
+    #{$attr}: $dark007;
+  }
+}
+
+//用于重要按钮、可交互文案
+@mixin borderPair($attr) {
+  [data-theme='light'] & {
+    #{$attr}: $light008;
+  }
+  .light & {
+    #{$attr}: $light008;
+  }
+  [data-theme='dark'] & {
+    #{$attr}: $dark008;
+  }
+  .dark & {
+    #{$attr}: $dark008;
+  }
+}
+
+//用于悬浮色
+@mixin hoverPair($attr) {
+  [data-theme='light'] & {
+    #{$attr}: $light009;
+  }
+  .light & {
+    #{$attr}: $light009;
+  }
+  [data-theme='dark'] & {
+    #{$attr}: $dark009;
+  }
+  .dark & {
+    #{$attr}: $dark009;
+  }
+}
+
+//用于侧边栏tab切换的字体颜色
+@mixin tabPair($attr) {
+  [data-theme='light'] & {
+    #{$attr}: $light010;
+  }
+  .light & {
+    #{$attr}: $light010;
+  }
+  [data-theme='dark'] & {
+    #{$attr}: $dark010;
+  }
+  .dark & {
+    #{$attr}: $dark010;
+  }
+}
+
+//用于禁止输入背景色
+@mixin disabledPair($attr) {
+  [data-theme='light'] & {
+    #{$attr}: $light011;
+  }
+  .light & {
+    #{$attr}: $light011;
+  }
+  [data-theme='dark'] & {
+    #{$attr}: $dark011;
+  }
+  .dark & {
+    #{$attr}: $dark011;
+  }
+}
+
+//用于主要按钮hover背景色
+@mixin btnHoverPair($attr) {
+  [data-theme='light'] & {
+    #{$attr}: $light012;
+  }
+  .light & {
+    #{$attr}: $light012;
+  }
+  [data-theme='dark'] & {
+    #{$attr}: $dark012;
+  }
+  .dark & {
+    #{$attr}: $dark012;
+  }
+}
+
+//用于主要按钮disabled背景色
+@mixin btnDisabledPair($attr) {
+  [data-theme='light'] & {
+    #{$attr}: $light013;
+  }
+  .light & {
+    #{$attr}: $light013;
+  }
+  [data-theme='dark'] & {
+    #{$attr}: $dark013;
+  }
+  .dark & {
+    #{$attr}: $dark013;
+  }
+}
+
+//用于loading背景颜色
+@mixin loadingMaskBgPair($attr) {
+  [data-theme='light'] & {
+    #{$attr}: $light014;
+  }
+  .light & {
+    #{$attr}: $light014;
+  }
+  [data-theme='dark'] & {
+    #{$attr}: $dark014;
+  }
+  .dark & {
+    #{$attr}: $dark014;
+  }
+}
+
+//用于涨颜色
+@mixin increasePair($attr) {
+  .light & {
+    #{$attr}: $common1;
+  }
+  .dark & {
+    #{$attr}: $common1;
+  }
+}
+
+//用于跌颜色
+@mixin decreasePair($attr) {
+  .light & {
+    #{$attr}: $common2;
+  }
+  .dark & {
+    #{$attr}: $common2;
+  }
+}
+
+//用于涨跌颜色按钮
+@mixin changeBtnPair($attr) {
+  .light & {
+    opacity: 0.84;
+  }
+  .dark & {
+    opacity: 0.84;
+  }
+}

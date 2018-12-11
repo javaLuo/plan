@@ -1,0 +1,261 @@
+// token icon begin
+.icon-demo {
+  content: '';
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  top: 5px;
+  position: relative; // right: 8px;
+  // background-size: contain;
+  background-size: cover;
+  margin-right: 8px;
+  text-indent: -9999px;
+}
+
+.token-logo {
+  &.default-icon {
+    background: url(~assets/images/assets-icon/default-icon.png) no-repeat center / cover;
+    @extend .icon-demo;
+  }
+  &.BTC {
+    background: url(~assets/images/assets-icon/svg/btc.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.USD {
+    background: url(~assets/images/assets-icon/USDT.png) no-repeat center / cover;
+    @extend .icon-demo;
+  }
+  &.ETH {
+    background: url(~assets/images/assets-icon/svg/eth.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.ETP {
+    background: url(~assets/images/assets-icon/svg/ETP.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.BCY {
+    background: url(~assets/images/assets-icon/BCY.png) no-repeat center / cover;
+    @extend .icon-demo;
+  }
+  &.ATN {
+    background: url(~assets/images/assets-icon/svg/ATN.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.XZC {
+    background: url(~assets/images/assets-icon/svg/XZC.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.CL {
+    background: url(~assets/images/assets-icon/svg/CL.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.DROP {
+    background: url(~assets/images/assets-icon/svg/DROP.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.JRC {
+    background: url(~assets/images/assets-icon/svg/JRC.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.RISE {
+    background: url(~assets/images/assets-icon/svg/RISE.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.AMB {
+    background: url(~assets/images/assets-icon/svg/AMB.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.TRX {
+    background: url(~assets/images/assets-icon/svg/TRX.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.OOT {
+    background: url(~assets/images/assets-icon/svg/OOT.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.SLRM {
+    background: url(~assets/images/assets-icon/svg/SLRM.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.CEEK {
+    background: url(~assets/images/assets-icon/svg/CEEK.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.EBST {
+    background: url(~assets/images/assets-icon/svg/EBST.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.EOS {
+    background: url(~assets/images/assets-icon/svg/EOS.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.AION {
+    background: url(~assets/images/assets-icon/svg/AION.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.UFR {
+    background: url(~assets/images/assets-icon/svg/UFR.svg) no-repeat;
+    @extend .icon-demo;
+  } // &.BTG{
+  //   background: url(~assets/images/assets-icon/svg/BTG.svg) no-repeat;
+  //   @extend .icon-demo;
+  //   background-size: cover;
+  // }
+  &.GOD {
+    background: url(~assets/images/assets-icon/svg/GOD.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.ONION {
+    background: url(~assets/images/assets-icon/svg/ONION.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.IIC {
+    background: url(~assets/images/assets-icon/svg/IIC.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.XZC {
+    background: url(~assets/images/assets-icon/svg/XZC.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.BTM {
+    background: url(~assets/images/assets-icon/svg/BTM.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.SNT {
+    background: url(~assets/images/assets-icon/svg/SNT.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.STORJ {
+    background: url(~assets/images/assets-icon/svg/STORJ.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.ZGC {
+    background: url(~assets/images/assets-icon/svg/ZGC.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.IND {
+    background: url(~assets/images/assets-icon/svg/IND.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.CMC {
+    background: url(~assets/images/assets-icon/svg/CMC.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.ECH {
+    background: url(~assets/images/assets-icon/svg/ECH.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.ZDC {
+    background: url(~assets/images/assets-icon/svg/ZDC.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.ZEC {
+    background: url(~assets/images/assets-icon/svg/ZEC.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.XRB {
+    background: url(~assets/images/assets-icon/svg/XRB.svg) no-repeat;
+    @extend .icon-demo;
+  } // &.OBTIS{
+  //   background: url(~assets/images/assets-icon/svg/OBTIS.svg) no-repeat;
+  //   @extend .icon-demo;
+  // }
+  // &.XNC{
+  //   background: url(~assets/images/assets-icon/svg/XNC.svg) no-repeat;
+  //   @extend .icon-demo;
+  //   background-size: cover;
+  // }
+  &.KEY {
+    background: url(~assets/images/assets-icon/svg/KEY.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.GXS {
+    background: url(~assets/images/assets-icon/svg/GXS.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.LTC {
+    background: url(~assets/images/assets-icon/svg/LTC.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.XZC {
+    background: url(~assets/images/assets-icon/svg/XZC.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.MVC {
+    background: url(~assets/images/assets-icon/svg/MVC.svg) no-repeat;
+    @extend .icon-demo;
+  } // &.OBTIS{
+  //   background: url(~assets/images/assets-icon/svg/OBTIS.svg) no-repeat;
+  //   @extend .icon-demo;
+  // }
+  &.NXS {
+    background: url(~assets/images/assets-icon/svg/NXS.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.MTX {
+    background: url(~assets/images/assets-icon/svg/MTX.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.RT {
+    background: url(~assets/images/assets-icon/svg/RT.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.DLT {
+    background: url(~assets/images/assets-icon/svg/DLT.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.BCC {
+    background: url(~assets/images/assets-icon/svg/BCC.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.BTS {
+    background: url(~assets/images/assets-icon/svg/BTS.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.ETC {
+    background: url(~assets/images/assets-icon/svg/ETC.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.OBITS {
+    background: url(~assets/images/assets-icon/svg/OBITS.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.OOT {
+    background: url(~assets/images/assets-icon/svg/OOT.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.BCH {
+    background: url(~assets/images/assets-icon/BCH.png) no-repeat center / cover;
+    @extend .icon-demo;
+  }
+  &.NANO {
+    background: url(~assets/images/assets-icon/NANO.png) no-repeat center / cover;
+    @extend .icon-demo;
+  }
+  &.ODE {
+    background: url(~assets/images/assets-icon/ODE.png) no-repeat center / cover;
+    @extend .icon-demo;
+  }
+  &.ABBC {
+    background: url(~assets/images/assets-icon/ABBC.png) no-repeat center / cover;
+    @extend .icon-demo;
+  }
+  &.XTZ {
+    background: url(~assets/images/assets-icon/XTZ.png) no-repeat center / cover;
+    @extend .icon-demo;
+  }
+  &.GPX {
+    background: url(~assets/images/assets-icon/svg/GPX.svg) no-repeat;
+    @extend .icon-demo;
+  }
+  &.TVC {
+    background: url(~assets/images/assets-icon/TVC.png) no-repeat center / cover;
+    @extend .icon-demo;
+  }
+  &.GBT {
+    background: url(~assets/images/assets-icon/GBT.png) no-repeat center / cover;
+    @extend .icon-demo;
+  }
+}
+
+// token icon end

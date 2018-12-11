@@ -1,0 +1,18 @@
+module.exports = {
+  "warning": "风险提示：处于早期阶段的区块链项目存在极高的不确定性风险，包括但不限于流动性差、价格剧烈变化、技术路线或安全出现重大问题、面临重大法律问题、团队解散等等。请投资者务必审慎评估自身风险承受能力以及投资能力，谨慎投资。",
+  "zone": "ETH交易区",
+  "announcement": "银榜公告",
+  "information": "银榜新币信息公示",
+  "more": "查看更多",
+  "emptyData": "暂无数据",
+  "currency": "交易对",
+  "current": "最新价格",
+  "low": "24H 最低价",
+  "high": "24H 最高价",
+  "increase": "24H 涨跌幅",
+  "count": "24H 成交量",
+  "option": "操作",
+  "trading": "交易",
+  "deposit": "充币",
+  "bannerTxt": "RightBTC · 银榜",
+};

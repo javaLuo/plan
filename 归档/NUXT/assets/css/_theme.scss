@@ -1,0 +1,321 @@
+@import 'theme-conf';
+.theme {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh; //limin 面包屑
+}
+
+.crumbs {
+  color: $light003;
+}
+
+.container {
+  width: 100%;
+  flex: 1;
+  @include frontPair(background-color);
+  &.login > .rcontent,
+  &.register > .rcontent {
+    min-width: 1024px; // min-height: 65vh;
+    margin: 0 auto;
+    width: 62.5%;
+    max-width: 1200px;
+    padding: 0 10px;
+    padding-bottom: 92px;
+    .input {
+      .el-button {
+        width: 100%;
+        height: 48px; // line-height: 48px;
+        padding: 0;
+      }
+    }
+  }
+  .icon-guanbi {
+    font-size: 32px;
+    color: #47436c;
+  }
+  .steps {
+    color: #635683;
+    font-size: 14px;
+    text-align: center;
+    .active {
+      color: #60cd8a;
+    }
+    span {
+      padding-right: 10px;
+    }
+  }
+  .login-title {
+    margin: 96px 0 34px;
+    @include fontPair(color);
+    width: 480px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    .title {
+      font-size: 36px;
+      font-weight: 400;
+    } // text-transform: uppercase;
+    a {
+      @include interactionPair(color);
+    }
+  }
+  .login-form {
+    .form-item {
+      width: 900px;
+      .disabled-userName {
+        border-bottom: 1px solid #072054;
+        color: #635683;
+        font-size: 18px;
+        user-select: none;
+      }
+      .area-title {
+        font-size: 12px;
+        color: #1c3369;
+      }
+      .line {
+        border-top: 1px solid #072054;
+        position: relative;
+        user-select: none;
+        a {
+          cursor: pointer;
+          font-size: 14px;
+          color: #60cd8a;
+          position: absolute;
+          top: -22px;
+          text-align: center;
+          background: #01143c;
+          right: 25%;
+        }
+      }
+    }
+  }
+}
+
+.icon-zichanjilu {
+  font-size: 14px;
+  color: $lightButtonColor;
+}
+
+.asset {
+  min-width: 1024px;
+  margin: 0 auto;
+  width: 62.5%;
+  padding-bottom: 96px;
+  max-width: 1200px;
+  flex: 1;
+  background: $light001;
+  .tl-page {
+    float: right;
+    margin-top: 30px;
+  }
+  .asset-table {
+    position: relative;
+  }
+  .purse {
+    margin-bottom: 22px;
+    display: flex;
+    justify-content: space-between;
+    .purse-left {
+      input {
+        width: 180px;
+        height: 28px;
+        border-radius: 2px;
+        background-color: #f6f8fd;
+      }
+      display: flex;
+      align-items: center;
+    }
+    .purse-right {
+      font-size: 14px;
+      color: $light004;
+      .count {
+        color: $light003;
+        margin-left: 15px;
+        font-weight: 500;
+      }
+      .switch {
+        background: rgba(86, 147, 255, 0.08);
+        border-radius: 2px;
+      }
+    }
+  }
+  .left {
+    background: #ffffff;
+    border: 1px solid #f7f5fd;
+    border-radius: 2px;
+    width: 75%;
+    height: 538px;
+    padding: 30px 28px;
+    max-width: 880px;
+    .currency-table {
+      margin-top: 48px;
+      width: 100%;
+      padding-bottom: 72px;
+      border-bottom: 1px solid #f5f6f9;
+      table {
+        width: 100%;
+        font-size: 14px;
+        color: $light003;
+        text-align: center;
+        thead {
+          height: 32px;
+          line-height: 32px;
+          > tr > th {
+            background-color: #f3f7fe;
+            color: #7d86ac;
+            font-weight: 400;
+          }
+        }
+        td {
+          line-height: 40px;
+        }
+      }
+    }
+    .tl-label-limit {
+      font-size: 12px;
+      color: #7d86ac;
+      margin-bottom: 26px;
+      display: flex;
+      justify-content: space-between;
+      width: 480px;
+    }
+  }
+  .right {
+    background: #ffffff;
+    border: 1px solid #f7f5fd;
+    border-radius: 2px;
+    width: 23%;
+    height: 540px;
+    max-width: 280px;
+    .title {
+      height: 55px;
+      line-height: 55px;
+      font-size: 14px;
+      color: #354989;
+      border-bottom: 1px solid #f5f6f9;
+      .icon-zhuyi {
+        color: #df543a;
+        margin-left: 28px;
+        vertical-align: middle;
+      }
+    }
+    .content {
+      padding: 20px 28px 0 28px;
+      font-size: 12px;
+      color: #7d86ac;
+      font-weight: 400;
+      ul > li {
+        list-style: disc;
+        font-size: 12px;
+        a {
+          color: $lightButtonColor;
+        }
+        &:nth-child(1) {
+          margin-top: 0;
+        }
+        margin-top: 30px;
+      }
+    }
+  }
+}
+
+footer {
+  flex: 0;
+}
+
+.breadcrumb {
+  margin: 30px 0 20px;
+}
+
+//reset swiper style
+.swiper-pagination-bullets .swiper-pagination-bullet {
+  width: 30px;
+  height: 5px;
+  display: inline-block;
+  background: rgba(181, 197, 239, 0.3);
+  border-radius: 6px;
+  border: none;
+  margin: 0 10px !important;
+  cursor: pointer;
+  opacity: 1;
+  vertical-align: middle;
+}
+
+.swiper-container-horizontal .swiper-pagination-bullet-active {
+  background: #d1dbf6;
+  height: 10px;
+  width: 10px;
+  border-radius: 100%;
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets.sliver-board-buttets {
+  bottom: 95px;
+}
+
+.swiper-loading-bg {
+  background: #46537a
+    url('data:image/png;base64,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')
+    no-repeat center;
+  background-size: 310px auto;
+}
+
+.el-form-item.is-required .el-form-item__label:before {
+  display: none;
+}
+
+.el-button {
+  border: none !important;
+}
+
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-container-horizontal > .swiper-pagination-bullets {
+  bottom: 50px !important;
+}
+
+.swiper-container {
+  &:hover > .swiper-button-prev {
+    display: block;
+  }
+  &:hover > .swiper-button-next {
+    display: block;
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none;
+  }
+}
+
+.peity {
+  .line {
+    svg {
+      position: absolute;
+      bottom: 0px;
+      z-index: 10;
+      polygon {
+        opacity: 0.06;
+      }
+      polyline {
+        opacity: 0.36;
+      }
+    }
+  }
+}
+
+.download-qrcode {
+  min-width: auto;
+  padding: 5px;
+  > img {
+    vertical-align: top;
+  }
+}
+
+.light .bake-page .synopsis .body * {
+  color: $light004 !important;
+  background-color: transparent !important;
+}
+
+.dark .bake-page .synopsis .body * {
+  color: $dark004 !important;
+  background-color: transparent !important;
+}

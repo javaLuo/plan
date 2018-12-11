@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 20 20" style="enable-background:new 0 0 20 20;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#_路径_2_1_);}
+</style>
+<title>图标</title>
+<circle id="_路径_" cx="9.8" cy="10" r="8"/>
+<linearGradient id="_路径_2_1_" gradientUnits="userSpaceOnUse" x1="14.2174" y1="-546.3945" x2="5.4126" y2="-537.5906" gradientTransform="matrix(1 0 0 1 0 552.03)">
+	<stop  offset="0" style="stop-color:#FFD25C"/>
+	<stop  offset="1" style="stop-color:#CD8421"/>
+</linearGradient>
+<circle id="_路径_2" class="st0" cx="9.8" cy="10" r="6.2"/>
+<path d="M12.8,12H9.5v0c0.4-0.4,0.7-0.9,1.1-1.4l2.1-2.9V6.2h-2.1V4.8H8.9v1.4H7.1v1.9h3v0C9.7,8.6,9.4,9,9,9.5l-2.2,3v1.4h2.1v1.4
+	h1.7v-1.4h2.2L12.8,12z"/>
+</svg>

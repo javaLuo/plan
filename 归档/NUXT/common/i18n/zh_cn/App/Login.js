@@ -1,0 +1,40 @@
+module.exports = {
+  "account": "账号",
+  "accountPlaceholder": "邮箱",
+  "accountError": "请输入正确的邮箱",
+  "hasnotAccount": "该邮箱未注册，请先注册！",
+  "pwd": "登录密码",
+  "userPwdLength": "请输入密码",
+  "scurityTtl": "谷歌验证码",
+  "googleVcodeEmpty": "请输入谷歌验证码",
+  "googleVcodeError": "谷歌验证码不正确，请重新输入",
+  "imgVcode": "验证码",
+  "imgVcodeEmpty": "请输入验证码",
+  "imgVcodeError": "验证码错误",
+  "button": "登录",
+  "okBtn": "登录",
+  "forgot": "忘记密码?",
+  "register": "注册新账户",
+  "loginFail": "登录失败",
+  "loginSuccess": "登录成功",
+  "passwordError": "密码错误",
+  "codeEmpty": "验证码不能为空",
+  "googleCodeError": "谷歌验证码不正确",
+  "welcomeLogin": "欢迎登录",
+  "authTit": "人机验证",
+  "startText": "向右滑动验证",
+  "yesText": "验证通过",
+  "loading": "加载中...",
+  "error300": [
+    "哎呀，出错了，点击",
+    "刷新",
+    "再来一次"
+  ],
+  "errorNetwork": [
+    "网络不给力，请",
+    "点击刷新"
+  ],
+  "checkNo": "验证未通过",
+  "overlay": "经检测你当前操作环境存在风险，请输入验证码",
+  "tipsTitle": "验证码错误，请重新输入"
+};

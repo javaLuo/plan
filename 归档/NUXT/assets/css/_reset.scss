@@ -1,0 +1,190 @@
+@charset "UTF-8";
+body {
+  // font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  font: 14px/1.5 'PingFang SC', 'Microsoft YaHei', SimHei, Arial, Helvetica, sans-serif, SimSun;
+  font-weight: 400;
+  font-size: 14px;
+  color: #000;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+input,
+select {
+  display: inline-block;
+}
+
+em {
+  font-style: normal;
+}
+
+ul,
+li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+body {
+  min-width: 1024px;
+  scroll-behavior: smooth;
+}
+
+a:focus {
+  outline: 0;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body,
+html,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li,
+dl,
+dt,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #606266;
+  font-weight: inherit;
+}
+
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child,
+p:first-child {
+  margin-top: 0;
+}
+
+h1:last-child,
+h2:last-child,
+h3:last-child,
+h4:last-child,
+h5:last-child,
+h6:last-child,
+p:last-child {
+  margin-bottom: 0;
+}
+
+h1 {
+  font-size: 20px;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+h4,
+h5,
+h6,
+p {
+  font-size: inherit;
+}
+
+p {
+  line-height: 1.8;
+}
+
+sub,
+sup {
+  font-size: 13px;
+}
+
+small {
+  font-size: 12px;
+}
+
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+.df {
+  display: flex;
+}
+
+.jcfs {
+  justify-content: flex-start;
+}
+
+.break-word {
+  word-break: break-word;
+}
+
+//横着居中
+.jcc {
+  justify-content: center;
+}
+
+//横着两端对齐
+.jcsb {
+  justify-content: space-between;
+}
+
+//垂直居中
+.aic {
+  align-items: center;
+}
+
+//子元素垂直居中
+.asc {
+  align-self: center;
+}
+
+//可以换行
+.fww {
+  flex-wrap: wrap;
+}
+
+//横着右对齐
+.jcfe {
+  justify-content: flex-end;
+}
+
+.aifs {
+  align-items: flex-start;
+}

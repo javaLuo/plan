@@ -1,0 +1,20 @@
+module.exports = {
+  "step1": "ログインパスワードをリセットする",
+  "step2": "セキュリティ検証",
+  "userName": "ユーザーアカウント",
+  "userNamePlaceholder": "メールアドレスを入力ください",
+  "code": "確認コード",
+  "codePlaceholder": "メール確認コードを入力してください",
+  "codeError": "確認コードエラー",
+  "getCode": "取得",
+  "button": "次へ",
+  "userNameError": "アカウントは登録されていない",
+  "imgCode": "画像確認コード",
+  "imgCodePlaceholder": "画像確認コードを入力してください",
+  "password": "ログインパスワード",
+  "confirmpassword": "パスワードを確認する",
+  "passwordPlaceholder": "新しいパスワードを入力してください",
+  "confirmpasswordPlaceholder": "もう一度パスワードを入力してください",
+  "confirmPasswordError": "2回入力したパスワードが一致していない",
+  "email": "電子メール"
+};

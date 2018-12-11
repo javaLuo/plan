@@ -1,0 +1,14 @@
+export const selectAvaCoin = 'selectAvaCoin';
+export const findAvaCoin = 'findAvaCoin';
+export const findDA = 'findDA';
+export const selectWA = 'selectWA';
+export const saveWA = 'saveWA';
+export const delWA = 'delWA';
+export const selectD = 'selectD';
+export const selectW = 'selectW';
+export const selectServiceFee = 'selectServiceFee';
+export const findPayPwd = 'findPayPwd';
+export const saveWOrder = 'saveWOrder';
+export const selectA = 'selectA';
+export const setState = 'setState';
+export const selectAssetsBake = 'selectAssetsBake';

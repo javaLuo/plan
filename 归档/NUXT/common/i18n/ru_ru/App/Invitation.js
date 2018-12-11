@@ -1,0 +1,18 @@
+module.exports = {
+  myInvitationCode: 'Мой код приглашения',
+  InvitationLink: 'Ссылка приглашения',
+  InvitationCode: 'Код приглашения',
+  copy: 'Копировать ',
+  InviteHistory: 'История приглашения',
+  RewardHistory: 'История наград',
+  UserName: 'Название пользователя',
+  RegistrationTime: 'Время регистрации',
+  ReleaseTime: '发放时间',
+  status: 'Статус',
+  type: 'Тип',
+  amount: 'Количество',
+  message: 'Чтобы получить соответствующие награды,KYC проверка трубуется для приглашения партнера. Завершите процесс проверки,пожалуйста!',
+  statusList: ['未发放', '已发放'],
+  rewardMethod: ['空投', '返佣'],
+  rewardstatus: ['未发放', '已发放'],
+};

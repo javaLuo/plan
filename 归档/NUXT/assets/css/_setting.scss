@@ -1,0 +1,285 @@
+// setting
+@import 'theme-conf';
+
+.setting {
+  width: 100%;
+  max-width: 1200px;
+  min-width: 1024px;
+  padding: 0 10px;
+  margin: 0 auto 96px;
+  font-weight: normal;
+  @include fontPair(color);
+
+  .main {
+    margin-top: 20px;
+    border-radius: 2px;
+    @include bgPair(background-color);
+
+    .nav-bar {
+      font-size: 18px;
+      padding: 14px 20px;
+      font-weight: 600;
+      border-bottom: 1px solid;
+      @include cutLinePair(border-bottom-color);
+    }
+
+    .descriptor {
+      padding: 48px 0;
+      margin: 0 48px;
+      border-bottom: 1px dashed;
+      @include cutLinePair(border-bottom-color);
+
+      dt {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 36px;
+        @include fontPair(color);
+      }
+
+      dd {
+        font-size: 12px;
+        line-height: 18px;
+        @include subFontPair(color);
+      }
+    }
+
+    .content {
+      padding: 60px 0 105px;
+    }
+
+    .el-form-item__label {
+      font-weight: normal;
+      padding-right: 24px;
+      @include subFontPair(color);
+    }
+
+    .el-form-item {
+      margin-bottom: 32px !important;
+    }
+
+    .el-select {
+      display: block !important;
+    }
+
+    .el-input {
+      max-width: 450px;
+    }
+
+    .el-input__inner {
+      height: 38px;
+      line-height: 38px;
+      border-radius: 2px;
+    }
+
+    .el-input.is-disabled .el-input__inner {
+      border: none !important;
+    }
+
+    .send-input {
+      .el-input__inner {
+        max-width: 338px;
+      }
+    }
+
+    .send-input.el-input {
+      max-width: 338px;
+    }
+
+    //checkbox字的颜色
+    .el-checkbox {
+      @include subFontPair(color);
+    }
+
+    .el-input.is-disabled {
+      .el-input__inner {
+        border-radius: 3px;
+        @include subFontPair(color);
+        @include borderPair(background-color);
+      }
+    }
+
+    .verfityImg {
+      border: 1px solid #e9e7ee;
+      border-radius: 2px;
+      margin-left: 32px;
+      width: 96px;
+      height: 38px;
+    }
+
+    .sendCode {
+      font-size: 12px;
+      color: #fff;
+      letter-spacing: 0.46px;
+      width: 100%; // margin-left: 16px;
+      border: none;
+      border-radius: 2px;
+      display: inline-block;
+      text-align: center; // width: 96px;
+      line-height: 38px; // background-color: $lightButtonColor;
+
+      .obtian {
+        color: #fff;
+      }
+    }
+
+    .determine {
+      color: #fff;
+      font-size: 16px;
+      width: 280px;
+      height: 44px;
+      margin-top: 16px;
+      border-radius: 4px;
+      @include interactionPair(background-color);
+    }
+  }
+}
+
+.c1Info-popover {
+  width: 300px;
+  line-height: 150%;
+  @include hoverPair(background-color);
+}
+
+
+// C2
+.c2Auth {
+  .el-upload {
+    position: relative;
+    float: right;
+    width: 218px;
+    height: 160px;
+    border-radius: 2px;
+    background: url('~static/images/upload-icon.png') no-repeat center center;
+    background-size: 32px 25px;
+    background-color: rgba(106, 160, 255, 0.1);
+
+    .el-upload__text {
+      font-size: 12px;
+      color: #fff;
+      text-align: center;
+      line-height: 20px;
+      padding: 10px 0;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #6aa0ff;
+    }
+  }
+}
+
+// SL
+.sliver-content,
+.listing-content {
+  .el-loading-mask {
+    min-height: 250px;
+  }
+}
+
+// about
+.page {
+  max-width: 1200px;
+  padding: 0 10px;
+  margin: 30px auto 96px;
+
+  .main {
+    background-color: #fff;
+    border-top: 6px solid $lightButtonColor;
+    border-radius: 2px;
+
+    .title {
+      font-size: 18px;
+      color: #221b2f;
+      height: 105px;
+      line-height: 105px;
+      text-align: center;
+      border-bottom: 1px dashed #e2e2e2;
+      position: relative;
+
+      .round {
+        background: #faf9fd;
+        width: 24px;
+        height: 24px;
+        border-radius: 100%;
+        position: absolute;
+      }
+    }
+
+    .content {
+      min-height: 360px;
+      padding: 34px 60px 50px;
+
+      h4 {
+        margin-top: 50px;
+        font-weight: normal;
+      }
+
+      p {
+        margin-top: 30px;
+        font-size: 14px;
+        letter-spacing: 0.36px;
+      }
+
+      .fees-tbdes {
+        width: 480px;
+        margin-top: 30px;
+        text-align: center;
+        line-height: 36px;
+        border-collapse: collapse;
+
+        th {
+          color: #fff;
+          background-color: $lightButtonColor;
+          font-weight: 500;
+          border: 1px solid $lightButtonColor;
+        }
+
+        td {
+          border: 1px solid #e8e8e8;
+        }
+      }
+
+      .foot-note {
+        text-align: right;
+        margin-top: 120px;
+      }
+    }
+  }
+}
+
+.user-layout {
+  .el-loading-mask {
+    min-height: 0;
+  }
+
+  .tradeApi {
+    .el-form-item {
+      margin: 44px 0 28px;
+
+      .el-form-item__label {
+        float: none !important;
+        line-height: 100%;
+        @include subFontPair(color);
+      }
+
+      .el-form-item__content {
+        margin-top: 12px;
+
+        .el-input {
+          width: 340px;
+          margin-right: 20px;
+        }
+
+        .el-button {
+          min-width: 132px;
+          padding: 0 12px;
+          line-height: 38px;
+          font-size: 16px;
+          color: #fff;
+          border-radius: 2px;
+          @include interactionPair(background-color);
+        }
+      }
+    }
+  }
+}

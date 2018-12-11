@@ -1,0 +1,40 @@
+module.exports = {
+  "account": "Account",
+  "accountPlaceholder": "Email Address",
+  "accountError": "Please enter the correct email address",
+  "hasnotAccount": "User account does not exist. Please click sign up for a free account to continue.",
+  "pwd": "Password",
+  "userPwdLength": "Please enter your password",
+  "scurityTtl": "Google Authentication Code",
+  "googleVcodeEmpty": "Please enter Google Authentication Code",
+  "googleVcodeError": "Google Authentication Code is incorrect, please try again",
+  "imgVcode": "Authentication Code",
+  "imgVcodeEmpty": "Please enter the code",
+  "imgVcodeError": "Authentication code error",
+  "button": "Log In",
+  "okBtn": "Log In",
+  "forgot": "Forgot Password?",
+  "register": "Register new account",
+  "loginFail": "Login failed",
+  "loginSuccess": "Login successful",
+  "passwordError": "Password error",
+  "codeEmpty": "The verification code cannot be blank",
+  "googleCodeError": "Incorrect Google Authentication Code",
+  "welcomeLogin": "Welcome Login",
+  "authTit": "ReCaptcha",
+  "startText": "Swipe to the right for verification",
+  "yesText": "Verification passed",
+  "loading": "Loading...",
+  "error300": [
+    "Oops, Error, Please try again",
+    "refresh the website",
+    "Try again"
+  ],
+  "errorNetwork": [
+    "Network is unstable",
+    "refresh the website"
+  ],
+  "checkNo": "Verification failure",
+  "overlay": "Your current OS environment is detected to be at risk. Please enter the verification code.",
+  "tipsTitle": "Verification code error, please enter again"
+};

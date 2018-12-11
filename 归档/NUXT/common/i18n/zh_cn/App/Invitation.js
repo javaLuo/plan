@@ -1,0 +1,18 @@
+module.exports = {
+  myInvitationCode: '我的邀请码',
+  InvitationLink: '邀请链接',
+  InvitationCode: '邀请码',
+  copy: '复制',
+  InviteHistory: '邀请历史',
+  RewardHistory: '奖励历史',
+  UserName: '用户名',
+  RegistrationTime: '注册时间',
+  ReleaseTime: '发放时间',
+  status: '状态',
+  type: '类型',
+  amount: '数量',
+  message: '合伙人邀请活动需要您进行KYC认证后才能享受对应的奖励，请先完成认证操作',
+  statusList: ['未失效', '已失效'],
+  rewardMethod: ['空投', '返佣'],
+  rewardstatus: ['已发放', '未发放'],
+};

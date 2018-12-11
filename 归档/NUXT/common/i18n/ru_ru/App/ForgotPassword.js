@@ -1,0 +1,20 @@
+module.exports = {
+  "step1": "Восстановить пароль",
+  "step2": "Проверка безопастности",
+  "userName": " Аккаунт пользователя",
+  "userNamePlaceholder": "Введите почту ",
+  "code": "Код проверки",
+  "codePlaceholder": "Введите код проверки почты",
+  "codeError": "Неправильный код проверки",
+  "getCode": "Отправить",
+  "button": "следующий шаг",
+  "userNameError": "Аккаунт не зарегистрирован",
+  "imgCode": "Капча",
+  "imgCodePlaceholder": "Введите капчу",
+  "password": "Пароль входа",
+  "confirmpassword": "Подтвердить новый пароль",
+  "passwordPlaceholder": "Введите ваш пароль ",
+  "confirmpasswordPlaceholder": "Введите ваш пароль еще раз",
+  "confirmPasswordError": "Разные пароли",
+  "email": "Почта"
+};

@@ -1,0 +1,92 @@
+@import 'theme-conf';
+@mixin bgColor {
+  .light & {
+    background: linear-gradient(-180deg, #012167 0%, #000f3c 100%);
+  }
+  .dark & {
+    background-color: #12152a;
+  }
+}
+
+@mixin footerBorder {
+  .light & {
+    border-color: #132556;
+  }
+  .dark & {
+    border-color: #202541;
+  }
+}
+
+footer {
+  z-index: 1;
+  position: relative;
+  @include bgColor();
+  .foot-content {
+    margin: 0 auto;
+    max-width: 1180px;
+    text-align: left;
+    padding: 36px 10px 24px;
+    display: flex;
+    justify-content: space-between;
+    a {
+      color: rgba(179, 197, 243, 0.6);
+    }
+    .foot-left {
+      .logo {
+        img {
+          width: 150px;
+        }
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        width: 150px;
+        margin: 24px 0 36px;
+        a {
+          width: 26px;
+          img {
+            width: 100%;
+          }
+        }
+        i {
+          font-size: 22px;
+        }
+      }
+    }
+    .foot-right {
+      display: flex;
+      justify-content: space-between;
+      dl {
+        dt {
+          margin-bottom: 20px;
+          font-size: 16px;
+          line-height: 1;
+          color: #b3c5f3;
+        }
+        dd {
+          font-size: 12px;
+          line-height: 1;
+          color: rgba(179, 197, 243, 0.6);
+          &:not(:last-of-type) {
+            margin-bottom: 14px;
+          }
+        }
+      }
+    }
+  }
+  .copyright {
+    padding: 16px 0;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    color: rgba(179, 197, 243, 0.6);
+    border-top: 1px solid;
+    @include footerBorder();
+    span {
+      display: block;
+      padding: 0 10px;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+  }
+}
