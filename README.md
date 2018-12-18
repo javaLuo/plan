@@ -30,3 +30,4 @@
 * white-space:nowrap;overflow:hidden;text-overflow:ellipsis; // ...
 * user-select: none;
 * text-align-last
+* ::placeholder // 修改placeholder的样式
