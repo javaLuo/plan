@@ -2,9 +2,6 @@
 
 * 博客代码重构：搜索、归档分类、列表筛选不分router
 * react-admin 升级最新版本
-* ~~发npm包模版升级最新版本~~
-* ~~滑动拼图验证码 快搞啊~~
-* ~~随机背景图~~
 * 归档/about me
 
 
@@ -14,6 +11,9 @@
 * WebAssembly
 * 机器学习
 * react-hooks
+
+## 文档
+https://www.css88.com/book/css/
 
 ## 总是记不住的东西
 
