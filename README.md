@@ -1,7 +1,6 @@
 ## 事情
 
 * 博客代码重构：搜索、归档分类、列表筛选不分router
-* react-admin 升级最新版本
 * 归档/about me
 
 
