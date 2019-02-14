@@ -2,14 +2,14 @@
 
 * 博客代码重构：搜索、归档分类、列表筛选不分router
 * 归档/about me
-* 实验一下FILP
+* 实验一下FILP ☑️
 
 ## 学习
 
 * Three.js 例子源码学习
 * WebAssembly ☑️
 * 机器学习
-* react-hooks
+* react-hooks ☑️
 * C4D
 
 ## 文档
