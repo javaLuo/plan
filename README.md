@@ -35,7 +35,7 @@ http://616pic.com/ 图片网 可下载
 * text-align-last
 * ::placeholder // 修改placeholder的样式
 * e.clientX:鼠标距离当前窗口左上角的坐标；<br/>e.pageX:鼠标距离当前窗口包括滚动条已滚动距离的坐标；<br/>e.offsetX:鼠标距离当前所在元素左上角的坐标
-* mac chrome 跨域：open -n /Applications/Google\ Chrome.app/ --args --disable-web-security  --user-data-dir=/Users/LeoLee/Documents/MyChromeDevUserData
+* mac chrome 跨域：open -n /Applications/Google\ Chrome.app/ --args --disable-web-security  --user-data-dir=/Users/admin/Documents/MyChromeDevUserData
 * win chrome 跨域：  --disable-web-security --user-data-dir=C:\MyChromeDevUserData
 
 ## 缓存
