@@ -1,14 +1,14 @@
 ## 事情
 
-* 加tslint
-* 相册
+* 加tslint☑️
+* 相册☑️
 * 博客代码重构：搜索功能,卡片，底部链接换https，底部重新设计☑️
 * 归档/about me☑️
 * 实验一下FLIP ☑️
 
 ## 学习
 
-* TypeScript
+* TypeScript☑️
 * Three.js 例子源码学习
 * WebAssembly ☑️
 * react-hooks ☑️
@@ -16,8 +16,9 @@
 * 总结正则表达式 ☑️
 
 ## 建模
+* 苹果鼠标
 * 怡宝
-* 小飞机
+* 小飞机☑️
 ## 文档
 
 https://www.css88.com/book/css/ CSS文档<br/>
