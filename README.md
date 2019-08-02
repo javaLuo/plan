@@ -31,20 +31,61 @@ http://616pic.com/ 图片网 可下载
 
 ## 总是记不住的东西
 
-* rel="nofollow me noopener noreferrer" // a标签防钓鱼
-* scroll-behavior: smooth; // 浏览器原生平滑滚动
-* (123456789.123).toLocaleString('en-US'); // "123,456,789.123"
-* new Intl.NumberFormat().format(123456789.123); // "123,456,789.123"
-* pointer-events: none/auto; // 是否响应鼠标事件
-* white-space:nowrap;overflow:hidden;text-overflow:ellipsis; // ...
-* word-break:break-all;word-wrap:break-word; // 强制换行
-* user-select: none;
-* text-align-last
-* ::placeholder // 修改placeholder的样式
-* e.clientX:鼠标距离当前窗口左上角的坐标；<br/>e.pageX:鼠标距离当前窗口包括滚动条已滚动距离的坐标；<br/>e.offsetX:鼠标距离当前所在元素左上角的坐标
-* mac chrome 跨域：open -n /Applications/Google\ Chrome.app/ --args --disable-web-security  --user-data-dir=/Users/admin/Documents/MyChromeDevUserData
-* win chrome 跨域：  --disable-web-security --user-data-dir=C:\MyChromeDevUserData
-* 隐藏input[number]的上下选择箭头
+1. a标签防钓鱼
+```js
+rel="nofollow me noopener noreferrer"
+```
+2. 浏览器原生平滑滚动
+```
+scroll-behavior: smooth; 
+```
+3. 原生千分位格式化,只支持3位小数
+```
+(123456789.123).toLocaleString('en-US'); // 第1种方法 "123,456,789.123"
+new Intl.NumberFormat().format(123456789.123); // 第2种方法 "123,456,789.123"
+```
+4. 是否响应鼠标事件
+```
+pointer-events: none/auto;
+```
+5. 放不下显示省略号
+```
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
+```
+6. 强制换行
+```
+word-break:break-all;
+word-wrap:break-word;
+```
+7. 禁止选取
+```
+user-select: none;
+```
+8. 最后一行两端对齐
+```
+text-align-last:justify;
+```
+9. 修改placeholder的样式
+```
+::placeholder
+```
+10. 鼠标位置相关
+```
+e.clientX // 鼠标距离当前窗口左上角的坐标
+e.pageX   // 鼠标距离当前窗口包括滚动条已滚动距离的坐标
+e.offsetX // 鼠标距离当前所在元素左上角的坐标
+```
+11. 关闭chrome跨域限制
+```
+/** mac 终端执行： */
+open -n /Applications/Google\ Chrome.app/ --args --disable-web-security  --user-data-dir=/Users/admin/Documents/MyChromeDevUserData
+
+/** windows 设置chrome快捷方式链接地址 */
+--disable-web-security --user-data-dir=C:\MyChromeDevUserData
+```
+12. 隐藏input[number]的上下选择箭头
 ```
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -53,6 +94,12 @@ input::-webkit-inner-spin-button {
 input[type='number'] {
   -moz-appearance: textfield;
 }
+```
+13. 正则解析URL参数部分
+```
+q={};
+location.search.replace(/([^?&=]+)=([^&]+)/g,(_,k,v)=>q[k]=v);
+console.log(q); // { key: value }
 ```
 
 ## 缓存
