@@ -101,6 +101,10 @@ q={};
 location.search.replace(/([^?&=]+)=([^&]+)/g,(_,k,v)=>q[k]=v);
 console.log(q); // { key: value }
 ```
+14. 数字强制等宽显示
+```css
+font-variant-numeric: tabular-nums;
+```
 
 ## 缓存
 ```
