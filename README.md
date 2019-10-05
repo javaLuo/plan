@@ -13,12 +13,9 @@
 
 ## 学习
 
-* TypeScript☑️
-* Three.js 例子源码学习
-* WebAssembly ☑️
-* react-hooks ☑️
-* C4D
-* 总结正则表达式 ☑️
+- vue-cli typescript
+- typescript
+- create-react-app typescript
 
 ## 文档
 
