@@ -111,7 +111,11 @@ background-image:-webkit-linear-gradient(bottom,red,#fd8403,yellow);
 // 定义一个变量，为了保存event对象
 let thisEvent;
 
-// 监听beforeinstallprompt这个事件，如果网站支持PWA且用户没有安装过，则会触发此事件（Chrome地址栏右侧会出现“安装”字样）
+/**
+  监听beforeinstallprompt这个事件
+  如果网站支持PWA且用户没有安装过，则会触发此事件（Chrome地址栏右侧会出现“安装”字样）
+  若用户已安装过或已不是首次打开网页，此事件不会触发（即Chrome地址栏右侧没有出现“安装”字样）
+**/
 window.addEventListener("beforeinstallprompt", e => {
   // 阻止 Chrome 67 之前的版本自动显示提示
   e.preventDefault();
