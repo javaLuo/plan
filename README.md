@@ -99,7 +99,13 @@ console.log(q); // { key: value }
 ```css
 font-variant-numeric: tabular-nums;
 ```
-
+15.css文字渐变
+```css
+background-image:-webkit-linear-gradient(bottom,red,#fd8403,yellow); 
+-webkit-background-clip:text; 
+-webkit-text-fill-color:transparent; 
+// https://segmentfault.com/a/1190000017015544
+```
 ## 缓存
 ```
 强缓存：
