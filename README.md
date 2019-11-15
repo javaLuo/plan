@@ -134,7 +134,18 @@ function installApp() {
 // 页面中写个按钮触发
 <button onclick="installApp">安装PWA桌面应用</button>
 ```
-
+17. 手机自带暗模式媒体查询
+```css
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #444;
+    color: #e4e4e4;
+  }
+  img {
+    filter: grayscale(30%);
+  }
+}
+```
 ## 缓存
 ```
 强缓存：
