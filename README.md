@@ -22,7 +22,7 @@
 https://www.css88.com/book/css/ CSS文档<br/>
 http://616pic.com/ 图片网 可下载<br/>
 https://developers.google.com/search/docs/guides/search-gallery?hl=zh-cn 谷歌搜索增强 <br/>
-
+https://www.paperplane.app/blog/print-css-basics/ css控制打印时的一些特定样式 <br/>
 ## 总是记不住的东西
 
 1. a标签防钓鱼
