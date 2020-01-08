@@ -10,7 +10,7 @@
     dom_box.className = "mybox";
     document.body.appendChild(dom_box);
     const li_title = document.createElement("li");
-    li_title.innerHTML = "<div>交易对1</div><div>交易对2</div><div>交易对3</div><div>结论</div><div>操作</div>";
+    li_title.innerHTML = "<div>对1</div><div>对2</div><div>对3</div><div>结论</div><div>操作</div>";
     dom_ul.appendChild(li_title);
     dom_box.appendChild(dom_ul);
 
@@ -32,7 +32,10 @@
     async getTickerOkex() {
       try {
         const res = await server.get(`https://www.okex.com/v2/spot/markets/tickers`, { t: Date.now() });
-        return res.data;
+        if (res.data && res.data.code === 0) {
+          return res.data.data || [];
+        }
+        return [];
       } catch (e) {
         console.error("getTickerOkex 请求失败", e);
       }
@@ -130,7 +133,7 @@
         left:0;
         z-index:99;
         background:#fff;
-        border-right:solid 1px #ccc;
+        border:solid 1px #ccc;
         padding:10px;
       }
       .mybox>ul{
@@ -207,7 +210,7 @@
             });
 
           if (d3) {
-            pushD3(d1, d2, d3, temp);
+            utils.pushD3(d1, d2, d3, temp);
           }
         }
       }
@@ -235,6 +238,7 @@
             </li>
           </ul>
         </div>
+        <div><button>开始</button></div>
         `;
       }
     }
