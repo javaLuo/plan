@@ -248,8 +248,8 @@
               ${temp[i].check === 1 && `${temp[i].d2.mu}>${temp[i].d2.zi},${temp[i].d2.zi}>${temp[i].d3.zi}>${temp[i].d3.zi}>${temp[i].d2.mu}`}
               ${temp[i].check === 2 && `${temp[i].d2.mu}>${temp[i].d1.zi},${temp[i].d1.zi}>${temp[i].d3.mu}>${temp[i].d3.mu}>${temp[i].d2.mu}`}
               <br/>
-              ${temp[i].check === 1 && `${window.baseM || baseM}/${item[i].d2t}/${item[i].t0}*${item[i].d1t} = ${item[i].taoDownFee}`}
-              ${temp[i].check === 2 && `${window.baseM || baseM}/${item[i].d1t}/${item[i].t0}*${item[i].d2t} = ${item[i].taoUpFee}`}
+              ${temp[i].check === 1 && `${window.baseM || baseM}/${temp[i].d2t}/${temp[i].t0}*${temp[i].d1t} = ${temp[i].taoDownFee}`}
+              ${temp[i].check === 2 && `${window.baseM || baseM}/${temp[i].d1t}/${temp[i].t0}*${temp[i].d2t} = ${temp[i].taoUpFee}`}
             </li>
           </ul>
         </div>
