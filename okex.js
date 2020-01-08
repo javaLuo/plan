@@ -40,6 +40,17 @@
         console.error("getTickerOkex 请求失败", e);
       }
     },
+    async getDeep(symbol) {
+      try {
+        const res = await server.get(`https://www.okex.com/v2/spot/markets/deep-deal`, { t: Date.now(), symbol });
+        if (res.data && res.data.code === 0) {
+          return res.data.data || [];
+        }
+        return { asks: [], bids: [] };
+      } catch (e) {
+        console.error("getDeep 请求失败", e);
+      }
+    },
   };
 
   // server.js
@@ -223,7 +234,7 @@
       console.info("=== 可设置参数 ==========");
       console.info("window.fee3: (1-费率)**3，window.baseM: 本金");
       const consoleT = [];
-      consoleT.push(["序号", "交易对1", "交易对2", "交易对3", "结论"]);
+      consoleT.push(["交易对1", "交易对2", "交易对3", "结论"]);
 
       for (let i = 0; i < dom_lis.length; i++) {
         dom_lis[i].innerHTML = `
