@@ -119,8 +119,8 @@
       // 差价 t1 - d2
       const t2 = t1 - d3t;
 
-      const taoDown = this.taoliDown(d1t, d2t, d3t);
-      const taoUp = this.taoliUp(d1t, d2t, d3t);
+      const taoDown = this.taoliDown(d1t, d2t, d3t, asks1,asks2,asks3);
+      const taoUp = this.taoliUp(d1t, d2t, d3t,asks1,asks2,asks3);
 
       const check = this.checkT2(t2);
       temp.push({
@@ -132,18 +132,21 @@
         d3t, // 交易对3真实价格
         t1, // 交易对3理论价格
         t2, // t1 - d3t
+        asks1,
+        asks2,
+        asks3,
         taoUpFee: taoUp * (window.fee3 || fee3), // 交易对3子币 被高估 计算
         taoDownFee: taoDown * (window.fee3 || fee3), // 交易对3子币 被低估 计算
         check,
       });
     },
     // 被低估 d2t:卖1，d3t:卖1， d1t：卖1
-    taoliDown(d1t, d2t, d3t) {
-      return ((window.baseM || baseM) / d2t / d3t) * d1t;
+    taoliDown(d1t, d2t, d3t, asks1, asks2, asks3) {
+      return ((window.baseM || baseM) / (asks2 || d2t) / (asks3 || d3t)) * ( asks1 || d1t);
     },
     // 被高估 d1t:卖1， d3t:卖1， d2t:卖1; usdt买lamb,lamb买usdk, usdk买usdt
-    taoliUp(d1t, d2t, d3t) {
-      return ((window.baseM || baseM) / d1t) * d3t * d2t;
+    taoliUp(d1t, d2t, d3t, asks1, asks2, asks3) {
+      return ((window.baseM || baseM) / ( asks1 || d1t)) * (asks3 || d3t) * (asks2 || d2t);
     },
     checkT2(num) {
       if (num < 0) {
@@ -192,7 +195,7 @@
       }
       .mybox>ul>li{
           display:flex;
-          align-items: center;
+          align-items: flex-start;
           color: #aaa;
           font-size: 14px;
       }
@@ -307,9 +310,9 @@
 
         for (let i = 0; i < dom_lis.length; i++) {
           dom_lis[i].innerHTML = `
-          <div>${temp[i].d1.symbol}<br/><b>${temp[i].d1t}</b></div>
-          <div>${temp[i].d2.symbol}<br/><b>${temp[i].d2t}</b></div>
-          <div>${temp[i].d3.symbol}<br/>真实价：<b>${temp[i].d3t}</b><br/>理论价：<b>${temp[i].t1}</b><br/>差价(理-真):<b>${temp[i].t2}</b></div>
+          <div>${temp[i].d1.symbol}<br/>当前价：<b>${temp[i].d1t}</b><br/>卖1:<b>${temp[i].asks1 || "-"}</b></div>
+          <div>${temp[i].d2.symbol}<br/>当前价：<b>${temp[i].d2t}</b><br/>卖1:<b>${temp[i].asks2 || "-"}</b></div>
+          <div>${temp[i].d3.symbol}<br/>当前价：<b>${temp[i].d3t}</b><br/>卖1:<b>${temp[i].asks3 || "-"}</b><br/>理论价：<b>${temp[i].t1}</b><br/>差价(理-真):<b>${temp[i].t2}</b></div>
           <div>
             <ul class="res">
               <li>${temp[i].d3.zi}${haveTao[temp[i].check]}</li>
@@ -317,8 +320,14 @@
                 ${temp[i].check === 1 ? `${temp[i].d2.mu}>${temp[i].d2.zi}, ${temp[i].d2.zi}>${temp[i].d3.zi}, ${temp[i].d3.zi}>${temp[i].d2.mu}` : ""}
                 ${temp[i].check === 2 ? `${temp[i].d2.mu}>${temp[i].d1.zi}, ${temp[i].d1.zi}>${temp[i].d3.mu}, ${temp[i].d3.mu}>${temp[i].d2.mu}` : ""}
                 <br/>
+                <div style="display: ${deepLook3.join("") === `${temp[i].d1.symbol}${temp[i].d2.symbol}${temp[i].d3.symbol ? 'block' : 'none'}">
+                ${temp[i].check === 1 ? `${window.baseM || baseM}/${temp[i].asks2}/${temp[i].asks3}*${temp[i].asks1} = ${temp[i].taoDownFee}` : ""}
+                ${temp[i].check === 2 ? `${window.baseM || baseM}/${temp[i].asks1}*${temp[i].asks3}*${temp[i].asks2} = ${temp[i].taoUpFee}` : ""}
+                </div>
+                <div style="display: ${deepLook3.join("") === `${temp[i].d1.symbol}${temp[i].d2.symbol}${temp[i].d3.symbol ? 'none' : 'block'}">
                 ${temp[i].check === 1 ? `${window.baseM || baseM}/${temp[i].d2t}/${temp[i].d3t}*${temp[i].d1t} = ${temp[i].taoDownFee}` : ""}
                 ${temp[i].check === 2 ? `${window.baseM || baseM}/${temp[i].d1t}*${temp[i].d3t}*${temp[i].d2t} = ${temp[i].taoUpFee}` : ""}
+                </div>
               </li>
             </ul>
           </div>
