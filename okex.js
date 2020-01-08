@@ -7,7 +7,9 @@
   const baseM = 100;
   const haveTao = ["无套利", "被低估", "被高估"];
   let tickerTimer = null;
-
+  let formartTicker = []; // 原始数据formart后
+  let deeps = {}; // 所有symbol的深度数据
+  let deepLook3 = [];
   function init() {
     dom_box.className = "mybox";
     document.body.appendChild(dom_box);
@@ -89,18 +91,20 @@
         temp2 = d1;
       }
       // 真实价格
-      const t0 = d3.last;
       const d1t = temp1.last;
       const d2t = temp2.last;
+      const d3t = d3.last;
+      // 卖1
+      const asks1 = deeps[d1.symbol] && deeps[d1.symbol].asks[0] ? deeps[d1.symbol].asks[0] : 0;
+      const asks2 = deeps[d1.symbol] && deeps[d2.symbol].asks[0] ? deeps[d2.symbol].asks[0] : 0;
+      const asks3 = deeps[d1.symbol] && deeps[d3.symbol].asks[0] ? deeps[d3.symbol].asks[0] : 0;
       // 理论价格 d1t/d2t
       const t1 = d1t / d2t;
       // 差价 t1 - d2
-      const t2 = t1 - t0;
+      const t2 = t1 - d3t;
 
-      const taoUp = this.taoli(d1t, d2t, t0);
-      // const taoUpFee = this.taoli(d1t, d2t, t0, this.fee);
-      const taoDown = this.taoli2(d1t, d2t, t0);
-      // const taoDownFee = this.taoli2(d1t, d2t, t0, this.fee);
+      const taoUp = this.taoli(d1t, d2t, d3t);
+      const taoDown = this.taoli2(d1t, d2t, d3t);
       const check = this.checkT2(t2);
       temp.push({
         d1: temp1, // 交易对1 obj
@@ -108,23 +112,21 @@
         d3, // 交易对3 obj
         d1t, // 交易对1真实价格
         d2t, // 交易对2真实价格
-        t0, // 交易对3真实价格
+        d3t, // 交易对3真实价格
         t1, // 交易对3理论价格
-        t2, // t1 - t0
-        taoUp, // 交易对3子币 被高估 计算
-        taoDown, // 交易对3子币 被低估 计算
+        t2, // t1 - d3t
         taoUpFee: taoUp * (window.fee3 || fee3), // 交易对3子币 被高估 计算
         taoDownFee: taoDown * (window.fee3 || fee3), // 交易对3子币 被低估 计算
         check,
       });
     },
-    // 被高估
-    taoli(d1t, d2t, t0) {
-      return ((window.baseM || baseM) / d1t) * t0 * d2t;
+    // 被高估 d1t:卖1， d3t:卖1， d2t:卖1
+    taoli(d1t, d2t, d3t) {
+      return ((window.baseM || baseM) / d1t) * d3t * d2t;
     },
-    // 被低估
-    taoli2(d1t, d2t, t0) {
-      return ((window.baseM || baseM) / d2t / t0) * d1t;
+    // 被低估 d2t:卖1，d3t:卖1， d1t：卖1
+    taoli2(d1t, d2t, d3t) {
+      return ((window.baseM || baseM) / d2t / d3t) * d1t;
     },
     checkT2(num) {
       if (num < 0) {
@@ -135,6 +137,30 @@
       return 0;
     },
   };
+
+  // 根据交易对获取深度 d1,d2,d3是3个symbol名字
+  function getDeep3(d1, d2, d3) {
+    const p = [api.getDeep(d1), api.getDeep(d2), api.getDeep(d3)];
+    Promise.all(p)
+      .then(resarr => {
+        resarr.forEach(item => {
+          if (item.data && item.data.code === 0) {
+            deeps[item.data.symbol] = item.data;
+          }
+        });
+      })
+      .catch(() => {
+        console.log("获取深度信息失败：", d1, d2, d3);
+      });
+  }
+
+  function startDeep3(d1, d2, d3) {
+    deepLook3 = [d1, d2, d3];
+  }
+  function stopDeep3() {
+    deeps = {};
+    deepLook3 = [];
+  }
   // 构建css
   function initStyle() {
     return `
@@ -163,6 +189,13 @@
       .mybox>ul>li b{
         color:#888;
       }
+      .mybox>ul>li button{
+        border:solid 1px #ccc;
+        cursor:pointer;
+      }
+      .mybox>ul>li button.check{
+        border:solid 1px #22c;
+      }
       .mybox>ul>li>div{
         padding: 2px 4px;
       }
@@ -184,22 +217,24 @@
     `;
   }
 
-  // 轮训
+  // 轮训刷ticker
   function tickerTime() {
     clearTimeout(tickerTimer);
     tickerTimer = setTimeout(() => {
+      if (deepLook3.length === 3) {
+        getDeep3(...deepLook3);
+      }
+
       updateTicker();
       tickerTime();
     }, 8000);
   }
 
-  init();
-  tickerTime();
-  // 开始操作
+  // 更新一次ticker
   function updateTicker() {
     api.getTickerOkex().then(res => {
       if (res) {
-        const formartTicker = res.map(item => {
+        formartTicker = res.map(item => {
           const [zi, mu] = item.symbol.split("_");
           return {
             ...item,
@@ -226,6 +261,10 @@
         for (let i = 0; i < l; i++) {
           const d1 = formartTicker[i];
           const mu = d1.mu;
+          // 我的本金为usdt
+          if (mu !== "usdt") {
+            continue;
+          }
           for (let j = 0; j < group[mu].length; j++) {
             const d2 = group[mu][j];
             if (d1 === d2) {
@@ -242,7 +281,6 @@
             }
           }
         }
-
         temp.sort((a, b) => {
           let av = a.check === 1 ? a.taoDownFee : a.check === 2 ? a.taoUpFee : 0;
           let bv = b.check === 1 ? b.taoDownFee : b.check === 2 ? b.taoUpFee : 0;
@@ -251,9 +289,9 @@
 
         for (let i = 0; i < dom_lis.length; i++) {
           dom_lis[i].innerHTML = `
-          <div>${temp[i].d1.zi}/${temp[i].d1.mu}<br/><b>${temp[i].d1t}</b></div>
-          <div>${temp[i].d2.zi}/${temp[i].d2.mu}<br/><b>${temp[i].d2t}</b></div>
-          <div>${temp[i].d3.zi}/${temp[i].d3.mu}<br/>真实价：<b>${temp[i].t0}</b><br/>理论价：<b>${temp[i].t1}</b><br/>差价(理-真):<b>${temp[i].t2}</b></div>
+          <div>${temp[i].d1.symbol}<br/><b>${temp[i].d1t}</b></div>
+          <div>${temp[i].d2.symbol}<br/><b>${temp[i].d2t}</b></div>
+          <div>${temp[i].d3.symbol}<br/>真实价：<b>${temp[i].d3t}</b><br/>理论价：<b>${temp[i].t1}</b><br/>差价(理-真):<b>${temp[i].t2}</b></div>
           <div>
             <ul class="res">
               <li>${temp[i].d3.zi}${haveTao[temp[i].check]}</li>
@@ -261,17 +299,24 @@
                 ${temp[i].check === 1 ? `${temp[i].d2.mu}>${temp[i].d2.zi}, ${temp[i].d2.zi}>${temp[i].d3.zi}, ${temp[i].d3.zi}>${temp[i].d2.mu}` : ""}
                 ${temp[i].check === 2 ? `${temp[i].d2.mu}>${temp[i].d1.zi}, ${temp[i].d1.zi}>${temp[i].d3.mu}, ${temp[i].d3.mu}>${temp[i].d2.mu}` : ""}
                 <br/>
-                ${temp[i].check === 1 ? `${window.baseM || baseM}/${temp[i].d2t}*${temp[i].t0}*${temp[i].d1t} = ${temp[i].taoDownFee}` : ""}
-                ${temp[i].check === 2 ? `${window.baseM || baseM}/${temp[i].d1t}/${temp[i].t0}*${temp[i].d2t} = ${temp[i].taoUpFee}` : ""}
+                ${temp[i].check === 1 ? `${window.baseM || baseM}/${temp[i].d2t}*${temp[i].d3t}*${temp[i].d1t} = ${temp[i].taoDownFee}` : ""}
+                ${temp[i].check === 2 ? `${window.baseM || baseM}/${temp[i].d1t}/${temp[i].d3t}*${temp[i].d2t} = ${temp[i].taoUpFee}` : ""}
               </li>
             </ul>
           </div>
-          <div><button>开始</button></div>
+          <div>
+            <button>开始</button>
+            <button class="${deepLook3.join("") === `${temp[i].d1.symbol}${temp[i].d2.symbol}${temp[i].d3.symbol}` ? "check" : ""}" click="startDeep3('${temp[i].d1.symbol}','${temp[i].d2.symbol}','${temp[i].d3.symbol}')">卖1修正</button>
+            <button click="stopDeep3">取消卖1修正</button>
+          </div>
           `;
         }
       }
     });
   }
+
+  init();
+  tickerTime();
 })();
 
 /*
