@@ -163,10 +163,10 @@
     const p = [api.getDeep(d1), api.getDeep(d2), api.getDeep(d3)];
     Promise.all(p)
       .then(resarr => {
-        console.log("获取深度信息：", resarr);
+        console.log("获取深度信息?：", resarr);
         resarr.forEach(item => {
-          if (item.data && item.data.code === 0) {
-            deeps[item.data.symbol] = item.data.data;
+          if (item) {
+            deeps[item.symbol] = item;
           }
         });
       })
