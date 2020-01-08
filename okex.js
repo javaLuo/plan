@@ -141,8 +141,10 @@
     return `
       .mybox{
         position:absolute;
-        top:48px;
-        width:300px;
+        bottom:0;
+        width:100%;
+        height: 300px;
+        overflow:auto;
         left:0;
         z-index:99;
         background:#fff;
@@ -267,7 +269,7 @@
           </div>
           <div><button>开始</button></div>
           `;
-          consoleT.push([`${temp[i].d1.zi}/${temp[i].d1.mu}:${temp[i].d1t}`, `${temp[i].d2.zi}/${temp[i].d2.mu}:${temp[i].d2t}`, `${temp[i].d2.zi}/${temp[i].d2.mu}: 真实价:${temp[i].t0}/理论价:${temp[i].t1}/差价(理-真):${temp[i].t2}`, `${temp[i].d3.zi}${haveTao[temp[i].check]}`]);
+          consoleT.push([`${temp[i].d1.zi}/${temp[i].d1.mu}:${temp[i].d1t}`, `${temp[i].d2.zi}/${temp[i].d2.mu}:${temp[i].d2t}`, `${temp[i].d2.zi}/${temp[i].d2.mu}: 真:${temp[i].t0}/理:${temp[i].t1}/差:${temp[i].t2}`, `${temp[i].d3.zi}${haveTao[temp[i].check]}:${temp[i].check === 1 && temp[i].taoDownFee}${temp[i].check === 2 && temp[i].taoUpFee}`]);
         }
         console.table(consoleT);
       }
