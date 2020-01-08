@@ -5,6 +5,10 @@
   const dom_lis = [];
   const fee3 = (1 - 0.0015) ** 3;
   const baseM = 100;
+  console.clear();
+  console.info("===可设置==========");
+  console.info("window.fee3: (1-费率)**3，window.baseM: 本金");
+  console.info("================");
   const haveTao = ["无套利", "被低估", "被高估"];
   function init() {
     dom_box.className = "mybox";
@@ -219,6 +223,9 @@
         let bv = b.check === 1 ? b.taoDownFee : b.check === 2 ? b.taoupFee : 0;
         return bv - av;
       });
+      console.clear();
+      const consoleT = [];
+      consoleT.push(["序号", "交易对1", "交易对2", "交易对3", "结论"]);
 
       for (let i = 0; i < dom_lis.length; i++) {
         dom_list[i].innerHTML = `
@@ -239,7 +246,9 @@
         </div>
         <div><button>开始</button></div>
         `;
+        consoleT.push([`${temp[i].d1.zi}/${temp[i].d1.mu}:${temp[i].d1t}`, `${temp[i].d2.zi}/${temp[i].d2.mu}:${temp[i].d2t}`, `${temp[i].d2.zi}/${temp[i].d2.mu}: 真实价:${temp[i].t0}/理论价:${temp[i].t1}/差价(理-真):${temp[i].t2}`, `${temp[i].d3.zi}${haveTao[temp[i].check]}`]);
       }
+      console.table(consoleT);
     }
   });
 })();
