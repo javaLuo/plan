@@ -1,3 +1,6 @@
+let deeps = {}; // 所有symbol的深度数据
+let deepLook3 = [];
+
 (function() {
   // init面板
   const dom_box = document.createElement("div");
@@ -8,8 +11,6 @@
   const haveTao = ["无套利", "被低估", "被高估"];
   let tickerTimer = null;
   let formartTicker = []; // 原始数据formart后
-  let deeps = {}; // 所有symbol的深度数据
-  let deepLook3 = [];
   function init() {
     dom_box.className = "mybox";
     document.body.appendChild(dom_box);
@@ -155,13 +156,6 @@
       });
   }
 
-  function startDeep3(d1, d2, d3) {
-    deepLook3 = [d1, d2, d3];
-  }
-  function stopDeep3() {
-    deeps = {};
-    deepLook3 = [];
-  }
   // 构建css
   function initStyle() {
     return `
@@ -328,3 +322,11 @@ function test() {
   axios.get("https://raw.githubusercontent.com/javaLuo/plan/master/okex.js").then(res => eval(res.data));
 }
 */
+
+function startDeep3(d1, d2, d3) {
+  deepLook3 = [d1, d2, d3];
+}
+function stopDeep3() {
+  deeps = {};
+  deepLook3 = [];
+}
