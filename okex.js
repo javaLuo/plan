@@ -186,7 +186,6 @@
       for (let i = 0; i < l; i++) {
         const ticker = formartTicker[i];
         const mu = ticker.mu;
-        k++;
         if (group[mu]) {
           group[mu].push(ticker);
         } else {
