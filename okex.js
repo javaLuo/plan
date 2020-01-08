@@ -119,8 +119,8 @@
       // 差价 t1 - d2
       const t2 = t1 - d3t;
 
-      const taoDown = this.taoliDown(d1t, d2t, d3t, asks1,asks2,asks3);
-      const taoUp = this.taoliUp(d1t, d2t, d3t,asks1,asks2,asks3);
+      const taoDown = this.taoliDown(d1t, d2t, d3t, asks1, asks2, asks3);
+      const taoUp = this.taoliUp(d1t, d2t, d3t, asks1, asks2, asks3);
 
       const check = this.checkT2(t2);
       temp.push({
@@ -142,11 +142,11 @@
     },
     // 被低估 d2t:卖1，d3t:卖1， d1t：卖1
     taoliDown(d1t, d2t, d3t, asks1, asks2, asks3) {
-      return ((window.baseM || baseM) / (asks2 || d2t) / (asks3 || d3t)) * ( asks1 || d1t);
+      return ((window.baseM || baseM) / (asks2 || d2t) / (asks3 || d3t)) * (asks1 || d1t);
     },
     // 被高估 d1t:卖1， d3t:卖1， d2t:卖1; usdt买lamb,lamb买usdk, usdk买usdt
     taoliUp(d1t, d2t, d3t, asks1, asks2, asks3) {
-      return ((window.baseM || baseM) / ( asks1 || d1t)) * (asks3 || d3t) * (asks2 || d2t);
+      return ((window.baseM || baseM) / (asks1 || d1t)) * (asks3 || d3t) * (asks2 || d2t);
     },
     checkT2(num) {
       if (num < 0) {
@@ -320,11 +320,11 @@
                 ${temp[i].check === 1 ? `${temp[i].d2.mu}>${temp[i].d2.zi}, ${temp[i].d2.zi}>${temp[i].d3.zi}, ${temp[i].d3.zi}>${temp[i].d2.mu}` : ""}
                 ${temp[i].check === 2 ? `${temp[i].d2.mu}>${temp[i].d1.zi}, ${temp[i].d1.zi}>${temp[i].d3.mu}, ${temp[i].d3.mu}>${temp[i].d2.mu}` : ""}
                 <br/>
-                <div style="display: ${deepLook3.join("") === `${temp[i].d1.symbol}${temp[i].d2.symbol}${temp[i].d3.symbol ? 'block' : 'none'}">
+                <div style="display: ${deepLook3.join("") === `${temp[i].d1.symbol}${temp[i].d2.symbol}${temp[i].d3.symbol}` ? "block" : "none"}">
                 ${temp[i].check === 1 ? `${window.baseM || baseM}/${temp[i].asks2}/${temp[i].asks3}*${temp[i].asks1} = ${temp[i].taoDownFee}` : ""}
                 ${temp[i].check === 2 ? `${window.baseM || baseM}/${temp[i].asks1}*${temp[i].asks3}*${temp[i].asks2} = ${temp[i].taoUpFee}` : ""}
                 </div>
-                <div style="display: ${deepLook3.join("") === `${temp[i].d1.symbol}${temp[i].d2.symbol}${temp[i].d3.symbol ? 'none' : 'block'}">
+                <div style="display: ${deepLook3.join("") === `${temp[i].d1.symbol}${temp[i].d2.symbol}${temp[i].d3.symbol}` ? "none" : "block"}">
                 ${temp[i].check === 1 ? `${window.baseM || baseM}/${temp[i].d2t}/${temp[i].d3t}*${temp[i].d1t} = ${temp[i].taoDownFee}` : ""}
                 ${temp[i].check === 2 ? `${window.baseM || baseM}/${temp[i].d1t}*${temp[i].d3t}*${temp[i].d2t} = ${temp[i].taoUpFee}` : ""}
                 </div>
