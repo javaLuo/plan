@@ -5,10 +5,6 @@
   const dom_lis = [];
   const fee3 = (1 - 0.0015) ** 3;
   const baseM = 100;
-  console.clear();
-  console.info("===可设置==========");
-  console.info("window.fee3: (1-费率)**3，window.baseM: 本金");
-  console.info("================");
   const haveTao = ["无套利", "被低估", "被高估"];
   function init() {
     dom_box.className = "mybox";
@@ -224,6 +220,8 @@
         return bv - av;
       });
       console.clear();
+      console.info("=== 可设置参数 ==========");
+      console.info("window.fee3: (1-费率)**3，window.baseM: 本金");
       const consoleT = [];
       consoleT.push(["序号", "交易对1", "交易对2", "交易对3", "结论"]);
 
