@@ -11,9 +11,6 @@
   function init() {
     dom_box.className = "mybox";
     document.body.appendChild(dom_box);
-    const li_title = document.createElement("li");
-    li_title.innerHTML = "<div>对1</div><div>对2</div><div>对3</div><div>结论</div><div>操作</div>";
-    dom_ul.appendChild(li_title);
     dom_box.appendChild(dom_ul);
 
     for (let i = 0; i < 10; i++) {
@@ -140,7 +137,7 @@
   function initStyle() {
     return `
       .mybox{
-        position:absolute;
+        position:fixed;
         bottom:0;
         width:100%;
         height: 300px;
@@ -158,6 +155,11 @@
       .mybox>ul>li{
           display:flex;
           align-items: center;
+          color: #aaa;
+          font-size: 14px;
+          b{
+            color:#888;
+          }
       }
       .mybox>ul>li>div{
         padding: 2px 4px;
@@ -244,34 +246,34 @@
           let bv = b.check === 1 ? b.taoDownFee : b.check === 2 ? b.taoupFee : 0;
           return bv - av;
         });
-        console.clear();
-        console.info("=== 可设置参数 ==========");
-        console.info("window.fee3: (1-费率)**3，window.baseM: 本金");
-        const consoleT = [];
-        consoleT.push(["交易对1", "交易对2", "交易对3", "结论"]);
+        // console.clear();
+        // console.info("=== 可设置参数 ==========");
+        // console.info("window.fee3: (1-费率)**3，window.baseM: 本金");
+        // const consoleT = [];
+        // consoleT.push(["交易对1", "交易对2", "交易对3", "结论"]);
 
         for (let i = 0; i < dom_lis.length; i++) {
           dom_lis[i].innerHTML = `
-          <div>${temp[i].d1.zi}/${temp[i].d1.mu}<br/>${temp[i].d1t}</div>
-          <div>${temp[i].d2.zi}/${temp[i].d2.mu}<br/>${temp[i].d2t}</div>
-          <div>${temp[i].d2.zi}/${temp[i].d2.mu}<br/>真实价：${temp[i].t0}<br/>理论价：${temp[i].t1}<br/>差价(理-真):${temp[i].t2}</div>
+          <div>${temp[i].d1.zi}/${temp[i].d1.mu}<br/><b>${temp[i].d1t}</b></div>
+          <div>${temp[i].d2.zi}/${temp[i].d2.mu}<br/><b>${temp[i].d2t}</b></div>
+          <div>${temp[i].d3.zi}/${temp[i].d3.mu}<br/>真实价：<b>${temp[i].t0}</b><br/>理论价：<b>${temp[i].t1}</b><br/>差价(理-真):<b>${temp[i].t2}</b></div>
           <div>
             <ul class="res">
               <li>${temp[i].d3.zi}${haveTao[temp[i].check]}</li>
               <li>
-                ${temp[i].check === 1 && `${temp[i].d2.mu}>${temp[i].d2.zi},${temp[i].d2.zi}>${temp[i].d3.zi}>${temp[i].d3.zi}>${temp[i].d2.mu}`}
-                ${temp[i].check === 2 && `${temp[i].d2.mu}>${temp[i].d1.zi},${temp[i].d1.zi}>${temp[i].d3.mu}>${temp[i].d3.mu}>${temp[i].d2.mu}`}
+                ${temp[i].check === 1 ? `${temp[i].d2.mu}>${temp[i].d2.zi}, ${temp[i].d2.zi}>${temp[i].d3.zi}, ${temp[i].d3.zi}>${temp[i].d2.mu}` : ""}
+                ${temp[i].check === 2 ? `${temp[i].d2.mu}>${temp[i].d1.zi}, ${temp[i].d1.zi}>${temp[i].d3.mu}, ${temp[i].d3.mu}>${temp[i].d2.mu}` : ""}
                 <br/>
-                ${temp[i].check === 1 && `${window.baseM || baseM}/${temp[i].d2t}/${temp[i].t0}*${temp[i].d1t} = ${temp[i].taoDownFee}`}
-                ${temp[i].check === 2 && `${window.baseM || baseM}/${temp[i].d1t}/${temp[i].t0}*${temp[i].d2t} = ${temp[i].taoUpFee}`}
+                ${temp[i].check === 1 ? `${window.baseM || baseM}/${temp[i].d2t}/${temp[i].t0}*${temp[i].d1t} = ${temp[i].taoDownFee}` : ""}
+                ${temp[i].check === 2 ? `${window.baseM || baseM}/${temp[i].d1t}/${temp[i].t0}*${temp[i].d2t} = ${temp[i].taoUpFee}` : ""}
               </li>
             </ul>
           </div>
           <div><button>开始</button></div>
           `;
-          consoleT.push([`${temp[i].d1.zi}/${temp[i].d1.mu}:${temp[i].d1t}`, `${temp[i].d2.zi}/${temp[i].d2.mu}:${temp[i].d2t}`, `${temp[i].d2.zi}/${temp[i].d2.mu}: 真:${temp[i].t0}/理:${temp[i].t1}/差:${temp[i].t2}`, `${temp[i].d3.zi}${haveTao[temp[i].check]}:${temp[i].check === 1 && temp[i].taoDownFee}${temp[i].check === 2 && temp[i].taoUpFee}`]);
+          // consoleT.push([`${temp[i].d1.zi}/${temp[i].d1.mu}:${temp[i].d1t}`, `${temp[i].d2.zi}/${temp[i].d2.mu}:${temp[i].d2t}`, `${temp[i].d2.zi}/${temp[i].d2.mu}: 真:${temp[i].t0}/理:${temp[i].t1}/差:${temp[i].t2}`, `${temp[i].d3.zi}${haveTao[temp[i].check]}:${temp[i].check === 1 && temp[i].taoDownFee}${temp[i].check === 2 && temp[i].taoUpFee}`]);
         }
-        console.table(consoleT);
+        // console.table(consoleT);
       }
     });
   }
