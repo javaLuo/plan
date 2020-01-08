@@ -228,7 +228,7 @@
       consoleT.push(["序号", "交易对1", "交易对2", "交易对3", "结论"]);
 
       for (let i = 0; i < dom_lis.length; i++) {
-        dom_list[i].innerHTML = `
+        dom_lis[i].innerHTML = `
         <div>${temp[i].d1.zi}/${temp[i].d1.mu}<br/>${temp[i].d1t}</div>
         <div>${temp[i].d2.zi}/${temp[i].d2.mu}<br/>${temp[i].d2t}</div>
         <div>${temp[i].d2.zi}/${temp[i].d2.mu}<br/>真实价：${temp[i].t0}<br/>理论价：${temp[i].t1}<br/>差价(理-真):${temp[i].t2}</div>
