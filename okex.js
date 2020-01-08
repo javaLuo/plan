@@ -188,7 +188,7 @@
           font-size: 14px;
       }
       .mybox>ul>li b{
-        color:#888;
+        color:#222;
       }
       .mybox>ul>li button{
         border:solid 1px #ccc;
@@ -307,8 +307,8 @@
           </div>
           <div>
             <button>开始</button>
-            <button class="${deepLook3.join("") === `${temp[i].d1.symbol}${temp[i].d2.symbol}${temp[i].d3.symbol}` ? "check" : ""}" click="startDeep3('${temp[i].d1.symbol}','${temp[i].d2.symbol}','${temp[i].d3.symbol}')">卖1修正</button>
-            <button click="stopDeep3">取消卖1修正</button>
+            <button class="${deepLook3.join("") === `${temp[i].d1.symbol}${temp[i].d2.symbol}${temp[i].d3.symbol}` ? "check" : ""}" onClick="startDeep3('${temp[i].d1.symbol}','${temp[i].d2.symbol}','${temp[i].d3.symbol}')">卖1修正</button>
+            <button onClick="stopDeep3">取消卖1修正</button>
           </div>
           `;
         }
