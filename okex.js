@@ -5,11 +5,11 @@
   const dom_lis = [];
   function init() {
     dom_box.className = "mybox";
-    document.body.appendChild(box);
+    document.body.appendChild(dom_box);
     const li_title = document.createElement("li");
     li_title.innerHTML = "<div>交易对1</div><div>交易对2</div><div>交易对3</div><div>结论</div><div>操作</div>";
     dom_ul.appendChild(li_title);
-    dom_box.appendChild(ul);
+    dom_box.appendChild(dom_ul);
 
     for (let i = 0; i < 10; i++) {
       const li = document.createElement("li");
