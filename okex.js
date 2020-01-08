@@ -97,9 +97,9 @@
       // 差价 t1 - d2
       const t2 = t1 - t0;
 
-      const taoUp = this.taoli(d1t, d2t, t0, 1);
+      const taoUp = this.taoli(d1t, d2t, t0);
       // const taoUpFee = this.taoli(d1t, d2t, t0, this.fee);
-      const taoDown = this.taoli2(d1t, d2t, t0, 1);
+      const taoDown = this.taoli2(d1t, d2t, t0);
       // const taoDownFee = this.taoli2(d1t, d2t, t0, this.fee);
       const check = this.checkT2(t2);
       temp.push({
@@ -118,11 +118,13 @@
         check,
       });
     },
-    taoli(d1t, d2t, t0, f) {
-      return ((window.baseM || baseM) / d1t) * f * t0 * f * d2t * f;
+    // 被高估
+    taoli(d1t, d2t, t0) {
+      return ((window.baseM || baseM) / d1t) * t0 * d2t;
     },
-    taoli2(d1t, d2t, t0, f) {
-      return ((((window.baseM || baseM) / d2t) * f) / t0) * f * d1t * f;
+    // 被低估
+    taoli2(d1t, d2t, t0) {
+      return ((window.baseM || baseM) / d2t / t0) * d1t;
     },
     checkT2(num) {
       if (num < 0) {
@@ -157,9 +159,9 @@
           align-items: center;
           color: #aaa;
           font-size: 14px;
-          b{
-            color:#888;
-          }
+      }
+      .mybox>ul>li b{
+        color:#888;
       }
       .mybox>ul>li>div{
         padding: 2px 4px;
@@ -242,15 +244,10 @@
         }
 
         temp.sort((a, b) => {
-          let av = a.check === 1 ? a.taoDownFee : a.check === 2 ? a.taoupFee : 0;
-          let bv = b.check === 1 ? b.taoDownFee : b.check === 2 ? b.taoupFee : 0;
+          let av = a.check === 1 ? a.taoDownFee : a.check === 2 ? a.taoUpFee : 0;
+          let bv = b.check === 1 ? b.taoDownFee : b.check === 2 ? b.taoUpFee : 0;
           return bv - av;
         });
-        // console.clear();
-        // console.info("=== 可设置参数 ==========");
-        // console.info("window.fee3: (1-费率)**3，window.baseM: 本金");
-        // const consoleT = [];
-        // consoleT.push(["交易对1", "交易对2", "交易对3", "结论"]);
 
         for (let i = 0; i < dom_lis.length; i++) {
           dom_lis[i].innerHTML = `
@@ -264,16 +261,14 @@
                 ${temp[i].check === 1 ? `${temp[i].d2.mu}>${temp[i].d2.zi}, ${temp[i].d2.zi}>${temp[i].d3.zi}, ${temp[i].d3.zi}>${temp[i].d2.mu}` : ""}
                 ${temp[i].check === 2 ? `${temp[i].d2.mu}>${temp[i].d1.zi}, ${temp[i].d1.zi}>${temp[i].d3.mu}, ${temp[i].d3.mu}>${temp[i].d2.mu}` : ""}
                 <br/>
-                ${temp[i].check === 1 ? `${window.baseM || baseM}/${temp[i].d2t}/${temp[i].t0}*${temp[i].d1t} = ${temp[i].taoDownFee}` : ""}
+                ${temp[i].check === 1 ? `${window.baseM || baseM}/${temp[i].d2t}*${temp[i].t0}*${temp[i].d1t} = ${temp[i].taoDownFee}` : ""}
                 ${temp[i].check === 2 ? `${window.baseM || baseM}/${temp[i].d1t}/${temp[i].t0}*${temp[i].d2t} = ${temp[i].taoUpFee}` : ""}
               </li>
             </ul>
           </div>
           <div><button>开始</button></div>
           `;
-          // consoleT.push([`${temp[i].d1.zi}/${temp[i].d1.mu}:${temp[i].d1t}`, `${temp[i].d2.zi}/${temp[i].d2.mu}:${temp[i].d2t}`, `${temp[i].d2.zi}/${temp[i].d2.mu}: 真:${temp[i].t0}/理:${temp[i].t1}/差:${temp[i].t2}`, `${temp[i].d3.zi}${haveTao[temp[i].check]}:${temp[i].check === 1 && temp[i].taoDownFee}${temp[i].check === 2 && temp[i].taoUpFee}`]);
         }
-        // console.table(consoleT);
       }
     });
   }
