@@ -103,8 +103,9 @@
       // 差价 t1 - d2
       const t2 = t1 - d3t;
 
-      const taoUp = this.taoli(d1t, d2t, d3t);
-      const taoDown = this.taoli2(d1t, d2t, d3t);
+      const taoDown = this.taoliDown(d1t, d2t, d3t);
+      const taoUp = this.taoliUp(d1t, d2t, d3t);
+
       const check = this.checkT2(t2);
       temp.push({
         d1: temp1, // 交易对1 obj
@@ -120,13 +121,13 @@
         check,
       });
     },
-    // 被高估 d1t:卖1， d3t:卖1， d2t:卖1
-    taoli(d1t, d2t, d3t) {
-      return ((window.baseM || baseM) / d1t) * d3t * d2t;
-    },
     // 被低估 d2t:卖1，d3t:卖1， d1t：卖1
-    taoli2(d1t, d2t, d3t) {
+    taoliDown(d1t, d2t, d3t) {
       return ((window.baseM || baseM) / d2t / d3t) * d1t;
+    },
+    // 被高估 d1t:卖1， d3t:卖1， d2t:卖1; usdt买lamb,lamb买usdk, usdk买usdt
+    taoliUp(d1t, d2t, d3t) {
+      return ((window.baseM || baseM) / d1t) * d3t * d2t;
     },
     checkT2(num) {
       if (num < 0) {
@@ -299,8 +300,8 @@
                 ${temp[i].check === 1 ? `${temp[i].d2.mu}>${temp[i].d2.zi}, ${temp[i].d2.zi}>${temp[i].d3.zi}, ${temp[i].d3.zi}>${temp[i].d2.mu}` : ""}
                 ${temp[i].check === 2 ? `${temp[i].d2.mu}>${temp[i].d1.zi}, ${temp[i].d1.zi}>${temp[i].d3.mu}, ${temp[i].d3.mu}>${temp[i].d2.mu}` : ""}
                 <br/>
-                ${temp[i].check === 1 ? `${window.baseM || baseM}/${temp[i].d2t}*${temp[i].d3t}*${temp[i].d1t} = ${temp[i].taoDownFee}` : ""}
-                ${temp[i].check === 2 ? `${window.baseM || baseM}/${temp[i].d1t}/${temp[i].d3t}*${temp[i].d2t} = ${temp[i].taoUpFee}` : ""}
+                ${temp[i].check === 1 ? `${window.baseM || baseM}/${temp[i].d2t}/${temp[i].d3t}*${temp[i].d1t} = ${temp[i].taoDownFee}` : ""}
+                ${temp[i].check === 2 ? `${window.baseM || baseM}/${temp[i].d1t}*${temp[i].d3t}*${temp[i].d2t} = ${temp[i].taoUpFee}` : ""}
               </li>
             </ul>
           </div>
