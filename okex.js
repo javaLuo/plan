@@ -6,6 +6,8 @@
   const fee3 = (1 - 0.0015) ** 3;
   const baseM = 100;
   const haveTao = ["无套利", "被低估", "被高估"];
+  let tickerTimer = null;
+
   function init() {
     dom_box.className = "mybox";
     document.body.appendChild(dom_box);
@@ -176,90 +178,101 @@
     `;
   }
 
+  // 轮训
+  function tickerTime() {
+    clearTimeout(tickerTimer);
+    tickerTimer = setTimeout(() => {
+      updateTicker();
+      tickerTime();
+    }, 8000);
+  }
+
   init();
-
+  tickerTime();
   // 开始操作
-  api.getTickerOkex().then(res => {
-    if (res) {
-      const formartTicker = res.map(item => {
-        const [zi, mu] = item.symbol.split("_");
-        return {
-          ...item,
-          zi,
-          mu,
-        };
-      });
+  function updateTicker() {
+    api.getTickerOkex().then(res => {
+      if (res) {
+        const formartTicker = res.map(item => {
+          const [zi, mu] = item.symbol.split("_");
+          return {
+            ...item,
+            zi,
+            mu,
+          };
+        });
 
-      let temp = [];
-      const l = formartTicker.length;
-      const group = {};
-      // 分组
-      for (let i = 0; i < l; i++) {
-        const ticker = formartTicker[i];
-        const mu = ticker.mu;
-        if (group[mu]) {
-          group[mu].push(ticker);
-        } else {
-          group[mu] = [ticker];
-        }
-      }
-
-      // 开始遍历
-      for (let i = 0; i < l; i++) {
-        const d1 = formartTicker[i];
-        const mu = d1.mu;
-        for (let j = 0; j < group[mu].length; j++) {
-          const d2 = group[mu][j];
-          if (d1 === d2) {
-            continue;
-          }
-          const d3 =
-            group[d2.zi] &&
-            group[d2.zi].find(item => {
-              return item.zi === d1.zi;
-            });
-
-          if (d3) {
-            utils.pushD3(d1, d2, d3, temp);
+        let temp = [];
+        const l = formartTicker.length;
+        const group = {};
+        // 分组
+        for (let i = 0; i < l; i++) {
+          const ticker = formartTicker[i];
+          const mu = ticker.mu;
+          if (group[mu]) {
+            group[mu].push(ticker);
+          } else {
+            group[mu] = [ticker];
           }
         }
-      }
 
-      temp.sort((a, b) => {
-        let av = a.check === 1 ? a.taoDownFee : a.check === 2 ? a.taoupFee : 0;
-        let bv = b.check === 1 ? b.taoDownFee : b.check === 2 ? b.taoupFee : 0;
-        return bv - av;
-      });
-      console.clear();
-      console.info("=== 可设置参数 ==========");
-      console.info("window.fee3: (1-费率)**3，window.baseM: 本金");
-      const consoleT = [];
-      consoleT.push(["交易对1", "交易对2", "交易对3", "结论"]);
+        // 开始遍历
+        for (let i = 0; i < l; i++) {
+          const d1 = formartTicker[i];
+          const mu = d1.mu;
+          for (let j = 0; j < group[mu].length; j++) {
+            const d2 = group[mu][j];
+            if (d1 === d2) {
+              continue;
+            }
+            const d3 =
+              group[d2.zi] &&
+              group[d2.zi].find(item => {
+                return item.zi === d1.zi;
+              });
 
-      for (let i = 0; i < dom_lis.length; i++) {
-        dom_lis[i].innerHTML = `
-        <div>${temp[i].d1.zi}/${temp[i].d1.mu}<br/>${temp[i].d1t}</div>
-        <div>${temp[i].d2.zi}/${temp[i].d2.mu}<br/>${temp[i].d2t}</div>
-        <div>${temp[i].d2.zi}/${temp[i].d2.mu}<br/>真实价：${temp[i].t0}<br/>理论价：${temp[i].t1}<br/>差价(理-真):${temp[i].t2}</div>
-        <div>
-          <ul class="res">
-            <li>${temp[i].d3.zi}${haveTao[temp[i].check]}</li>
-            <li>
-              ${temp[i].check === 1 && `${temp[i].d2.mu}>${temp[i].d2.zi},${temp[i].d2.zi}>${temp[i].d3.zi}>${temp[i].d3.zi}>${temp[i].d2.mu}`}
-              ${temp[i].check === 2 && `${temp[i].d2.mu}>${temp[i].d1.zi},${temp[i].d1.zi}>${temp[i].d3.mu}>${temp[i].d3.mu}>${temp[i].d2.mu}`}
-              <br/>
-              ${temp[i].check === 1 && `${window.baseM || baseM}/${temp[i].d2t}/${temp[i].t0}*${temp[i].d1t} = ${temp[i].taoDownFee}`}
-              ${temp[i].check === 2 && `${window.baseM || baseM}/${temp[i].d1t}/${temp[i].t0}*${temp[i].d2t} = ${temp[i].taoUpFee}`}
-            </li>
-          </ul>
-        </div>
-        <div><button>开始</button></div>
-        `;
-        consoleT.push([`${temp[i].d1.zi}/${temp[i].d1.mu}:${temp[i].d1t}`, `${temp[i].d2.zi}/${temp[i].d2.mu}:${temp[i].d2t}`, `${temp[i].d2.zi}/${temp[i].d2.mu}: 真实价:${temp[i].t0}/理论价:${temp[i].t1}/差价(理-真):${temp[i].t2}`, `${temp[i].d3.zi}${haveTao[temp[i].check]}`]);
+            if (d3) {
+              utils.pushD3(d1, d2, d3, temp);
+            }
+          }
+        }
+
+        temp.sort((a, b) => {
+          let av = a.check === 1 ? a.taoDownFee : a.check === 2 ? a.taoupFee : 0;
+          let bv = b.check === 1 ? b.taoDownFee : b.check === 2 ? b.taoupFee : 0;
+          return bv - av;
+        });
+        console.clear();
+        console.info("=== 可设置参数 ==========");
+        console.info("window.fee3: (1-费率)**3，window.baseM: 本金");
+        const consoleT = [];
+        consoleT.push(["交易对1", "交易对2", "交易对3", "结论"]);
+
+        for (let i = 0; i < dom_lis.length; i++) {
+          dom_lis[i].innerHTML = `
+          <div>${temp[i].d1.zi}/${temp[i].d1.mu}<br/>${temp[i].d1t}</div>
+          <div>${temp[i].d2.zi}/${temp[i].d2.mu}<br/>${temp[i].d2t}</div>
+          <div>${temp[i].d2.zi}/${temp[i].d2.mu}<br/>真实价：${temp[i].t0}<br/>理论价：${temp[i].t1}<br/>差价(理-真):${temp[i].t2}</div>
+          <div>
+            <ul class="res">
+              <li>${temp[i].d3.zi}${haveTao[temp[i].check]}</li>
+              <li>
+                ${temp[i].check === 1 && `${temp[i].d2.mu}>${temp[i].d2.zi},${temp[i].d2.zi}>${temp[i].d3.zi}>${temp[i].d3.zi}>${temp[i].d2.mu}`}
+                ${temp[i].check === 2 && `${temp[i].d2.mu}>${temp[i].d1.zi},${temp[i].d1.zi}>${temp[i].d3.mu}>${temp[i].d3.mu}>${temp[i].d2.mu}`}
+                <br/>
+                ${temp[i].check === 1 && `${window.baseM || baseM}/${temp[i].d2t}/${temp[i].t0}*${temp[i].d1t} = ${temp[i].taoDownFee}`}
+                ${temp[i].check === 2 && `${window.baseM || baseM}/${temp[i].d1t}/${temp[i].t0}*${temp[i].d2t} = ${temp[i].taoUpFee}`}
+              </li>
+            </ul>
+          </div>
+          <div><button>开始</button></div>
+          `;
+          consoleT.push([`${temp[i].d1.zi}/${temp[i].d1.mu}:${temp[i].d1t}`, `${temp[i].d2.zi}/${temp[i].d2.mu}:${temp[i].d2t}`, `${temp[i].d2.zi}/${temp[i].d2.mu}: 真实价:${temp[i].t0}/理论价:${temp[i].t1}/差价(理-真):${temp[i].t2}`, `${temp[i].d3.zi}${haveTao[temp[i].check]}`]);
+        }
+        console.table(consoleT);
       }
-      console.table(consoleT);
-    }
-  });
+    });
+  }
 })();
 
 /*
