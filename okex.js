@@ -360,6 +360,7 @@
   function updateTicker() {
     api.getTickerOkex().then(res => {
       if (res) {
+        const start = Date.now();
         let k = {};
         res.forEach(item => {
           k[item.symbol] = {
@@ -381,9 +382,12 @@
         const l = formartTicker.length;
         const group = {};
         // 分组
+        let ks = 0;
+
         for (let i = 0; i < l; i++) {
           const ticker = formartTicker[i];
           const mu = ticker.mu;
+          ks++;
           if (group[mu]) {
             group[mu].push(ticker);
           } else {
@@ -396,17 +400,20 @@
           const d1 = formartTicker[i];
           const mu = d1.mu;
           // 我的本金为usdt
-          if (mu !== "usdk") {
+          if (mu !== "usdt") {
+            ks++;
             continue;
           }
           for (let j = 0; j < group[mu].length; j++) {
             const d2 = group[mu][j];
             if (d1 === d2) {
+              ks++;
               continue;
             }
             const d3 =
               group[d2.zi] &&
               group[d2.zi].find(item => {
+                ks++;
                 return item.zi === d1.zi;
               });
 
@@ -415,6 +422,7 @@
             }
           }
         }
+        console.log("共循环：", ks, "耗时：", Date.now() - start);
         temp.sort((a, b) => {
           let av = a.check === 1 ? a.taoDownFee : a.check === 2 ? a.taoUpFee : 0;
           let bv = b.check === 1 ? b.taoDownFee : b.check === 2 ? b.taoUpFee : 0;
