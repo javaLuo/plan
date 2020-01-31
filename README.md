@@ -1,13 +1,7 @@
 ## 事情
 
-* 加tslint☑️
-* 相册☑️
-* 博客代码重构：搜索功能,卡片，底部链接换https，底部重新设计☑️
-* 归档/about me☑️
-* 实验一下FLIP ☑️
 * 研究拖拽布局
 * three 地球数据迁移效果
-* 建模- 眼睛，头部，上身，管道，周围场景，巨型飞船
 * http知识
 * 蝌蚪游戏研究
 
@@ -15,7 +9,7 @@
 
 - vue-cli typescript
 - typescript
-- create-react-app typescript
+
 
 ## 文档
 
