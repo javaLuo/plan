@@ -166,3 +166,11 @@ ETag: 文件唯一标识
 启发缓存
 如果响应头中没有能够确定缓存的字段，浏览器会根据Date和Last-Modified的差值的10%作为缓存时间
 ```
+
+## 过渡的坑
+```
+像vue-transition-group这样的列表过渡组件
+在窗口非激活状态（最小化，电脑休眠等）时，浏览器为了节约性能，会停止setTimeout/setInterval/requestAnimationFrame以及页面dom的渲染
+如果此时数据仍然在更新（比如socket不会停止），则列表中的dom会越来越多，不需要的dom不会被浏览器清除
+
+```
