@@ -149,6 +149,14 @@ function installApp() {
   }
 }
 ```
+
+18. github改了密码，重置sourcetree密码
+```
+WIN:
+删除 C:\Users\用户\用户名\AppData\Local\Atlassian\password
+sourcetree重新提交会弹出登录框
+```
+
 ## 缓存
 ```
 强缓存：
