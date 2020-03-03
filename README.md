@@ -182,3 +182,61 @@ ETag: 文件唯一标识
 如果此时数据仍然在更新（比如socket不会停止），则列表中的dom会越来越多，不需要的dom不会被浏览器清除
 
 ```
+
+## vscode 配置
+```
+{
+  "editor.tabSize": 2, // tab相当于2个空格
+  /**
+   * vetur插件设置 用于vue template格式化
+   * https://github.com/vuejs/vetur
+   */
+  "vetur.format.defaultFormatter.html": "js-beautify-html",
+  "vetur.format.defaultFormatterOptions": {
+    "js-beautify-html": {
+      "wrap_attributes": "force-aligned" //属性强制折行对齐
+    }
+  },
+  /** Eslint设置 **/
+  "eslint.validate": [
+    // 检查以下类型的文件
+    "javascript",
+    "javascriptreact",
+    "vue",
+    "html",
+    {
+      "language": "html",
+      "autoFix": false
+    },
+    {
+      "language": "vue",
+      "autoFix": false
+    }
+  ],
+  "eslint.autoFixOnSave": false, //保存时自动格式化
+  "javascript.implicitProjectConfig.experimentalDecorators": true,
+  /**
+   * prettier设置
+   * https://prettier.io/docs/en/options.html
+   */
+  "prettier.singleQuote": false, //使用单引号而不是双引号
+  "prettier.jsxBracketSameLine": true, // 标签闭合处是否不换行
+  "prettier.printWidth": 400, // 多少个字符换行
+  "prettier.tabWidth": 2, // tab的宽度
+  "prettier.semi": true, // 是否自动在语句末尾加分号
+  "prettier.trailingComma": "all", // 是否自动加尾逗号（none不，es5自动加兼容es5, all尽可能都加）
+  "prettier.bracketSpacing": true, // 大括号之间是否有空格
+  "prettier.arrowParens": "avoid",
+  "explorer.confirmDragAndDrop": false,
+  "workbench.startupEditor": "welcomePage",
+  "breadcrumbs.enabled": true,
+  "editor.formatOnSave": true,
+  "diffEditor.ignoreTrimWhitespace": true,
+  "diffEditor.renderSideBySide": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "vsicons.dontShowNewVersionMessage": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": false
+  } // 箭头函数只有一个参数时是否加括号（always加，avoid不加）
+}
+```
