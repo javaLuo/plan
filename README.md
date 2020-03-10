@@ -11,13 +11,14 @@
 - 交易页order不同选择调不同接口，现在还没接口，socket也需要有判断
 - 借款要加一个同意协议 V
 - 等balanceG接口好了，全面开始资产页面各数据处理，划转，借还处理
-- 资产页图表缺接口，风险缺接口，order历史页缺接口
-- 衍生品页面同步 V
+- 杠杆：资产页图表缺接口，风险缺接口，order历史页缺接口
 
 ## 学习
 
 - vue-cli typescript
 - typescript
+- react hooks具体实践
+- react-admin升antd4.0
 
 
 ## 文档
