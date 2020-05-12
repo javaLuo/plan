@@ -55,8 +55,9 @@ text-overflow:ellipsis;
 ```
 6. 强制换行
 ```css
-word-break:break-all;
-word-wrap:break-word;
+word-break: break-all;
+word-wrap: break-word;
+white-space: pre-wrap;
 ```
 7. 禁止选取
 ```css
