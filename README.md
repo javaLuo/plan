@@ -47,7 +47,7 @@ new Intl.NumberFormat().format(123456789.123); // 第2种方法 "123,456,789.123
 ```css
 pointer-events: none/auto;
 ```
-5. 放不下显示省略号
+5. 放不下显示省略号/强制不换行
 ```css
 white-space:nowrap;
 overflow:hidden;
