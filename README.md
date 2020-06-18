@@ -161,7 +161,7 @@ sourcetree重新提交会弹出登录框
 ```
 
 19. 生成UUid
-```
+```javascript
 function getUUid(){
   const temp_url = URL.createObjectURL(new Blob());
   const uuid = temp_url.toString();
