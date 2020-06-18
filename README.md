@@ -160,6 +160,16 @@ WIN:
 sourcetree重新提交会弹出登录框
 ```
 
+19. 生成UUid
+```
+function getUUid(){
+  const temp_url = URL.createObjectURL(new Blob());
+  const uuid = temp_url.toString();
+  URL.revokeObjectURL(temp_url);
+  return uuid.substr(uuid.lastIndexOf("/") + 1);
+}
+```
+
 ## 缓存
 ```
 强缓存：
