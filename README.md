@@ -170,6 +170,11 @@ function getUUid(){
 }
 ```
 
+20. 原生CSS实现毛玻璃
+```
+backdrop-filter: blur(4px);
+```
+
 ## 缓存
 ```
 强缓存：
