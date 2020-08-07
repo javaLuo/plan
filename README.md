@@ -171,8 +171,14 @@ function getUUid(){
 ```
 
 20. 原生CSS实现毛玻璃
-```
+```css
 backdrop-filter: blur(4px);
+```
+
+30. 解析URL参数
+```javascript
+Object.fromEntries(new URLSearchParams('a=123&b=456&c='));
+// {a:"123",b:"456",c:""}
 ```
 
 ## 缓存
