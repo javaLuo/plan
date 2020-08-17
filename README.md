@@ -1,16 +1,8 @@
 ## 事情
 
 - 套利程序
-
-- 移动端适配
-- 交易页order不同选择调不同接口，现在还没接口，socket也需要有判断
-- 借款要加一个同意协议 V
-- 等balanceG接口好了，全面开始资产页面各数据处理，划转，借还处理
-- 杠杆：资产页图表缺接口，风险缺接口，order历史页缺接口
-
 - typescript研究
 - grid 实践
-
 - 词：名词动词， 语：主语宾语，句：陈述句倒装句， 时：一般现在过去将来，状态：进行完成
 - 近代史时间轴
 
@@ -19,8 +11,6 @@
 - vue-cli typescript
 - typescript
 - react hooks具体实践
-- react-admin升antd4.0
-
 
 ## 文档
 
@@ -28,6 +18,7 @@ https://www.css88.com/book/css/ CSS文档<br/>
 http://616pic.com/ 图片网 可下载<br/>
 https://developers.google.com/search/docs/guides/search-gallery?hl=zh-cn 谷歌搜索增强 <br/>
 https://www.paperplane.app/blog/print-css-basics/ css控制打印时的一些特定样式 <br/>
+
 ## 总是记不住的东西
 
 1. a标签防钓鱼
