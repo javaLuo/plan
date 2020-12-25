@@ -25,10 +25,10 @@ https://neumorphism.io/ 漂亮的拟物按钮CSS
 ## 总是记不住的东西
 
 1. a标签防钓鱼
-```js
+```html
 rel="noopener noreferrer nofollow  me"
 noopener: 在新打开的网站中window.opener将得到null, 阻止新打开的网站获取原始网站的信息
-noreferrer: 除了使window.opene为null外，还隐藏引荐信息，谷歌搜索引擎将无法识别该网站是从其他网站跳转，而视为直接流量
+noreferrer: 除了使window.opener为null外，还隐藏引荐信息，谷歌搜索引擎将无法识别该网站是从其他网站跳转，而视为直接流量
 nofollow：是否阻止反向链接，这在搜索引擎SEO排名中有用，如果你链接添加了nofollow，表示主网站不认可该跳转链接的价值，搜索引擎排名算法不会为这个链接的相关性而提升Rank排名。一般用于高价值网站跳转到低价值网站时可以加上，防止低价值网站拉低了整体价值评分
 me：一般用于社交网站，比如博客网站放了一个twitter链接，加了me，表示该twitter链接就是该博客主人的其他社交媒体。这有利于搜索引擎发现博主的相关站点
 ```
