@@ -1,11 +1,3 @@
-# ViewFin-WEB-RightBTC2018-NUXT
-
-## 项目介绍
-
-该项目为域名 rightbtc.com 的源代码,使用 nuxt.js 框架。
-
-## 项目架构
-
 ### 资源目录
 
 资源目录 `assets` 用于组织未编译的静态资源如 `LESS`、`SASS`、 `Image` 或 `JavaScript`。
@@ -107,49 +99,6 @@ or
 yarn devProd
 ```
 
-其中 package 中 script 命令中 MY_ENV 为环境变量，通过改变环境变量来联调当前环境
-
-    "devProd": "MY_ENV=szzc nuxt",
-
-环境变量对应表
-
-```
-test --> qa 环境 --> 域名：tulipex.space --> 分支： test
-rc --> rc 环境 --> 域名：btchft.com --> 分支： rc
-prod --> 生产环境 （需要翻墙） --> rightbtc.com --> 分支： prod
-szzc --> 生产环境小域名  --> szzc.io --> 分支：szzc
-rightbtccc --> 生产环境小域名 --> rightbtc.cc --> 分支： rightbtccc
-btcright --> 生产环境小域名（准备用于 tulipex 使用） --> btcright.pro --> btcright
-```
-
-另外环境变量对应的配置文件需要改两个文件中的配置
-
-> common/config.js 在各个配置中增加对应的配置
-
-> package.json 在 script 中新增对应的命令
-
-由于本项目 cookie 是跟域名绑定的（为了和 otc 互通），所以需要在本机绑定 host 如下：
-
-```
-127.0.0.1 dev.tulipex.space
-127.0.0.1 dev.otc.tulipex.space
-127.0.0.1 dev.btchft.com
-127.0.0.1 dev.otc.btchft.com
-127.0.0.1 dev.rightbtc.com
-127.0.0.1 dev.otc.rightbtc.com
-127.0.0.1 dev.szzc.io
-127.0.0.1 dev.otc.szzc.io
-127.0.0.1 dev.rightbtc.cc
-127.0.0.1 dev.otc.rightbtc.cc
-127.0.0.1 dev.btcright.pro
-127.0.0.1 dev.otc.btcright.pro
-```
-
-访问方式为，
-
-rightbtc: dev.tulipex.space:4000
-
-otc: dev.otc.tulipex.space:3000
 
 本地开发环境 build 后查看
 
@@ -161,27 +110,3 @@ yarn build${环境变量}
 yarn publish${环境变量}
 ```
 
-访问方式和本地访问一样。
-
-### 分支说明
-
-如上所述，为了配合 jinkens 发布闭环，前端项目通过切换分支代码来发布对应分支环境，环境变量与分支名称对应。
-
-另外 develop 为固定本地开发分支，test 为 qa 测试分支。
-release 中的分支为生产环境备份分支。
-
-### 代码提交流程
-
-- 开发流程应为每个人从 develop 分支切出自己的独立分支，通常使用自己独立的名字（例如自己的名字等）。
-- 功能完成后合并到 develop 分支，合并时务必要**先拉后提！！** **先拉后提！！** **先拉后提！！**（为了避免产生多条记录，方便查找记录），同时需要保证 develop 上的代码为最新代码，由团队 leader 检查通过后可合并到 test 分支，然后使用[发布工具](http://deploy.szzc.io)发布测试环境内容并通知测试。
-- 阶段性 test 测试通过后，统一合并到 rc 分支，通知测试已合并，让测试通知运维发布 rc 环境。
-- **上线前务必保证 rc 环境代码为此次发布的所有功能**，rc 环境测试通过后，上线前只做一步，经测试同意，rc 代码合并到 prod（**谨慎合并**）。
-- 于项目有小域名，讲 rc 环境合并到 prod 后，为保证项目代码一致性。需要把 prod 分支的代码 合并到各个小域名中。**务必把所有冲突都在 rc 环境之前解决**。
-- 另外，提交代码务必带上说明，说明大概修改内容。
-- 已发布版本稳定后，需要在该版本的 prod 分支的位置打上版本号 tag，方法为：右键->标签->输入需要编写的版本号->确定。
-- 多余的分支会定期清理。请务必管理好自己的分支，要和 devlop 保持为最新为佳。
-
-### 紧急修复线上问题
-
-- 紧急修复线上问题请在 prod 分支上拉去 hotfix 分支，修改完成后合并 rc 环境测试，测试通过后从 prod 分支合并各个小域名，发布上线。
-- 发布上线后将 hotfix 分支内容合并到 develop，通过 develop 分支正向合并到需要的分支，**切忌逆向合并**
