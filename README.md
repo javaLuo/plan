@@ -176,6 +176,8 @@ Object.fromEntries(new URLSearchParams('a=123&b=456&c='));
 // {a:"123",b:"456",c:""}
 ```
 
+31. 父级`transform`会让子集的`position:fixed`失效
+
 ## 缓存
 ```
 强缓存：
