@@ -178,6 +178,13 @@ Object.fromEntries(new URLSearchParams('a=123&b=456&c='));
 
 31. 父级`transform`会让子集的`position:fixed`失效
 
+32. 禁止ios浏览器橡皮筋效果
+```js
+document.body.addEventListener('touchmove', (e)=>{
+  e.preventDefault();
+}, {passive: false});
+// 一定要加passive: false, 告诉浏览器我会阻止默认行为，IOS此值默认为true
+```
 ## 缓存
 ```
 强缓存：
