@@ -47,6 +47,13 @@ pointer-events: none/auto;
 white-space:nowrap;
 overflow:hidden;
 text-overflow:ellipsis;
+
+// 多行
+overflow: hidden;
+display: -webkit-box;
+text-overflow: ellipsis;
+-webkit-line-clamp: 2;  /*要显示的行数*/
+-webkit-box-orient: vertical;
 ```
 6. 强制换行
 ```css
