@@ -192,6 +192,22 @@ document.body.addEventListener('touchmove', (e)=>{
 }, {passive: false});
 // 一定要加passive: false, 告诉浏览器我会阻止默认行为，IOS此值默认为true
 ```
+
+33. file转base64, 用于前端图片回显
+```js
+async function returnImg(file: File){
+  const reader = new FileReader();
+  reader.readAsDataURL(file);
+  return new Promise((res, rej)=>{
+    reader.onload = ()=>{
+      res(reader.result);
+    };
+    reader.onerror = ()=>{
+      res(null);
+    };
+  });
+}
+```
 ## 缓存
 ```
 强缓存：
