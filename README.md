@@ -1,15 +1,3 @@
-## 事情
-
-- 个人所得税
-- 作品
-- 内部小程序3D应用
-
-
-## 学习
-
-- vue-cli typescript
-- typescript
-- react hooks具体实践
 
 ## 文档
 
@@ -208,6 +196,13 @@ async function returnImg(file: File){
   });
 }
 ```
+
+34. sourcetree切换账号
+工具 - 选项 - 排在第一个的ssh密钥中的账号就是sourcetree使用的git账号
+要切换的时候直接切换ssh密钥即可
+
+全局配置中的账号和邮箱只是作为提交时显示用
+
 ## 缓存
 ```
 强缓存：
